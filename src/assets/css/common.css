@@ -1,0 +1,43 @@
+@import url('font-exo.css');
+
+:root {
+    --border-color: #0083d1;
+    --lines_base_width: 0.5vw;
+    --notch_width: 20vw;
+    --primary-color: #0083d1;
+    --secondary_color: #ff7545;
+}
+
+* {
+    box-sizing: border-box; /* Displays like this work better when we plan for a screen not a flexible visitor */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    background: black;
+    color: var(--primary-color);
+    font-family: "Exo", sans-serif;
+    font-size: 3vh;
+
+    overflow: hidden;
+
+
+    margin: 0;
+    padding: 0;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+#wrapper {
+    /* Columns and rows data will be set in individual views */
+    display: grid;
+    gap: 0 0;
+    grid-auto-flow: row;
+    height: 100vh;
+    width: 100vw;
+}
