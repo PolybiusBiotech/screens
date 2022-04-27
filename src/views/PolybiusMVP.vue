@@ -1,20 +1,21 @@
-<script setup lang="ts">
-    import NewsMarquee from '../components/news-marquee.vue';
-</script>
-
 <template>
+<layout>
+
     <main id="wrapper">
         <div id="about">
             about
         </div>
         <div id="graphs">
-            graphs
+            <div class="chart">
+                <chart />
+            </div>
         </div>
         <div id="employees">
             employees
         </div>
         <NewsMarquee id="news" />
     </main>
+    </layout>
 </template>
 
 <style>
@@ -33,5 +34,14 @@
     #graphs { grid-area: Graphs; }
     #news { grid-area: News; }
 
+    .chart canvas {
+        height: 30vh;
+    }
 
 </style>
+
+<script setup lang="ts">
+    import Layout from '@/layouts/primaryLayout.vue';
+    import Chart from '@/components/chart.vue';
+    import NewsMarquee from '@/components/news-marquee.vue';
+</script>
