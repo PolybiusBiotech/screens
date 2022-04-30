@@ -1,6 +1,5 @@
 <template>
 	<main id="layout">
-		
 		 <div id="notch"><!-- class="animate__animated animate__flip animate__infinite animate__slower animate__delay-2s"-->
 			<svg class="border" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
 				<path d="M 0 0 L 100 50 L 200 0" />
@@ -12,10 +11,11 @@
 				</svg>
 			</div>
 		</div>
-		
-		<!-- Content will be inserted here -->
-			<slot />
-		<!-- End of content-->
+		<div id="content">
+			<!-- Content will be inserted here -->
+				<slot />
+			<!-- End of content-->
+		</div>
 	</main> <!-- #layout -->
 
 
@@ -29,25 +29,28 @@
 	#layout {
 		/* Columns and rows data will be set in individual views */
 		border: var(--lines_base_width) solid var(--primary-color);
-		display: grid;
-		gap: 0 0;
-		grid-auto-flow: row;
+		border-radius: 1.5vh;
 		height: calc(100vh - 2*var(--lines_base_width));
 		margin: var(--lines_base_width);
 		overflow: hidden;
 		padding: var(--lines_base_width);
+		position: static;
 		width: calc(100vw - 2*var(--lines_base_width)) ;
+		z-index: 10;
 	}
 
 	#notch {
-    margin: auto;
-    position: absolute;
-        left: calc(50% - 0.50 * var(--notch_width));
-        top: calc(-1 * var(--lines_base_width));
-    width: var(--notch_width);
-}
+		background: black;
+		border-top: var(--lines_base_width) solid black;
+		margin: auto;
+		position: absolute;
+			left: calc(50% - 0.50 * var(--notch_width));
+			top: 0;
+		width: var(--notch_width);
+		z-index: 999999;
+	}
     #notch .logo {
-        margin: auto;
+		margin: auto;
         position: relative;
         width: 45%;
         z-index: 9999;
@@ -78,5 +81,10 @@
             vector-effect: non-scaling-stroke;
         }
 
+	#content {
+		display: grid;
+		gap: 1vh 1vw;
+		grid-auto-flow: row;
+	}
 
 </style>

@@ -1,9 +1,15 @@
 <template>
     <article class="chart">
-        <canvas :id="uid" height="30vh" width="40vw"></canvas>
+        <canvas :id="uid"></canvas>
 
     </article>
 </template>
+
+<style scoped>
+	.chart {
+		width: 100%;
+	}
+</style>
 
 <script setup>
     import { computed, onMounted } from 'vue';
@@ -56,6 +62,8 @@
 					}
 				},
 				legend: false,
+				maintainAspectRatio: false,
+				responsive: true,
 				scales: {
 					y: {
 						min: 0,

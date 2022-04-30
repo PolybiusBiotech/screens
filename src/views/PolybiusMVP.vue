@@ -1,36 +1,51 @@
 <template>
 <layout>
 
-    <main id="wrapper">
-        <div id="about">
-            about
+    <div id="about">
+        <Text>
+            <template #title>About Us</template>
+            <p>
+                Bringing you the best there is and could be.
+            </p>
+            <p>
+                From us straight to your door.
+            </p>
+            <p>
+                You do not need to fear anymore.
+            </p>
+            <p class="larger">
+                TRUST US.
+            </p>
+        </Text>
+    </div>
+    <div id="graphs">
+        <div class="chart">
+            <chart />
         </div>
-        <div id="graphs">
-            <div class="chart">
-                <chart />
-            </div>
+        <div class="chart">
+            <chart />
         </div>
-        <div id="employees">
-            employees
-        </div>
-        <NewsMarquee id="news" />
-    </main>
+    </div>
+    <div id="schedule">
+        <schedule />
+    </div>
+    <NewsMarquee id="news" />
     </layout>
 </template>
 
 <style>
 
-    #wrapper {
+    #content {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 4vh;
         grid-template-areas:
             "About Graphs"
-            "Employees Graphs"
+            "Schedule Graphs"
             "News News";
     }
 
     #about { grid-area: About; }
-    #employees { grid-area: Employees; }
+    #schedule { grid-area: Schedule; }
     #graphs { grid-area: Graphs; }
     #news { grid-area: News; }
 
@@ -42,6 +57,25 @@
 
 <script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
-    import Chart from '@/components/chart.vue';
-    import NewsMarquee from '@/components/news-marquee.vue';
+    import Chart from '@/widgets/chart.vue';
+    import NewsMarquee from '@/widgets/news-marquee.vue';
+    import Schedule from '@/widgets/schedule.vue';
+    import Text from '@/widgets/text.vue';
+
+    const employees = [
+        {
+            img: "https://placekitten.com/100/100",
+            name: "Kate Libby"
+        }, {
+            img: "https://placekitten.com/g/100/100",
+            name: "Dade Murphey"
+        }, {
+            img: "https://placekitten.com/100/99",
+            name: "Thomas Anderson"
+        }, {
+            img: "https://placekitten.com/g/100/99",
+            name: "Gargamel"
+        }
+    ];
+
 </script>
