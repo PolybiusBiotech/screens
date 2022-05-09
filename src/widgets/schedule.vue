@@ -85,15 +85,15 @@
         events.value = localStorage.schedule;
 
 	function sortEvents (events:object[]): object[] {
-		events = events.sort((e1:object, e2:object): number => {
-			return (new Date(e1.start_date) < new Date(e2.start_date)) ? -1 : 1
+		events = events.sort((e1:any, e2:any): number => {
+			return (new Date(e1['start_date']) < new Date(e2['start_date'])) ? -1 : 1
 		})
 		return events;
 	}
 
-	function filterEvents(events) {
+	function filterEvents(events:object[]) {
 		const now = (debug) ? new Date('2018-09-02 14:00') : new Date();
-		return events.filter(e => new Date(e.start_date) >= now);
+		return events.filter((e:any) => new Date(e['start_date']) >= now);
 	}
 
     async function updateSchedule() {

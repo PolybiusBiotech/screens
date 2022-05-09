@@ -83,7 +83,7 @@
     import Schedule from '@/widgets/schedule.vue';
     import Text from '@/widgets/text.vue';
 
-    function eventsFilter(events) {
+    function eventsFilter(events:object[]) {
 		return events.slice(0,5);
 	}
 

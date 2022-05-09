@@ -12,8 +12,6 @@
 </style>
 
 <script lang="ts">
-	//type GraphType = "area" | "bar" | "bubble" | "line";
-
 	const animations = { // Fun animations we can use
 		"none": null,
 		"wobbly": {
@@ -27,13 +25,7 @@
         },
     }
 
-
-	type AnimationName = {
-		[P in (keyof typeof animations)] : String;
-	}
-
-
-    let interval;
+let interval;
 
 
 </script>
@@ -46,7 +38,7 @@
 
     const props = defineProps({
 		animation: {
-			type: String,
+			type: Animation,
 			default: 'none'
 		},
         dataRetriever: { 
@@ -59,10 +51,7 @@
 			type:  String, //Object as PropType <GraphType>,
 			default: 'bar'
 		},
-        interval: { // in milliseconds, 0 for no refresh
-            type: Number as PropType <Number>,
-            default: 0
-        },
+        interval : 0,
 		yMax: {
 			type: Number as PropType <Number>,
 			optional: true
@@ -71,7 +60,7 @@
 
 
     onMounted(() => {
-        const ctx = document.getElementById(uid);
+        const ctx:any = document.getElementById(uid);
         const chart = new Chart(ctx, {
             type: props.graphType,
             data: props.dataRetriever.call(null),
