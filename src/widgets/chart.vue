@@ -12,7 +12,7 @@
 </style>
 
 <script lang="ts">
-	type GraphType = "bar" | "line";
+	//type GraphType = "area" | "bar" | "bubble" | "line";
 
 	const animations = { // Fun animations we can use
 		"none": null,
@@ -55,14 +55,18 @@
             type: Function as PropType <Function>,
             default: null
         }, 
-		graphType: {
-			type:  Object as PropType <GraphType>,
+		graphType: { // See chart.js documentation
+			type:  String, //Object as PropType <GraphType>,
 			default: 'bar'
 		},
         interval: { // in milliseconds, 0 for no refresh
             type: Number as PropType <Number>,
             default: 0
-        }
+        },
+		yMax: {
+			type: Number as PropType <Number>,
+			optional: true
+		}
     });
 
 
@@ -73,15 +77,20 @@
             data: props.dataRetriever.call(null),
             options: { // TODO will we want to change these?
 				animation: animations[props.animation],
-				legend: false,
 				maintainAspectRatio: false,
+				plugins: { 
+					legend: { display: false } 
+				},
 				responsive: true,
-				// scales: {
-				// 	y: {
-				// 		min: 0,
-				// 		max: 20
-				// 	}
-				// }
+				scaleShowLabels: false,
+
+				scales: {
+					y: {
+						display: false,
+						min: 0,
+						max: props.yMax
+					}
+				}
             },
         });
 		if (props.interval > 0) {

@@ -26,7 +26,7 @@
             <chart :dataRetriever="generateGraphData" :interval="3200" graphType="line" animation="wobbly" />
         </div>
         <div class="chart">
-            <chart :dataRetriever="generateGraphData" :interval="1000" graphType="bar" animation="wobbly" />
+            <chart :dataRetriever="generateGraphData" :interval="2000" graphType="pie" />
         </div>
     </section>
     <section id="schedule">
