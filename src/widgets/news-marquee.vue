@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<h1 class="title">{{title}}</h1>
+		<h1 class="title">{{ props.title }}</h1>
 		
 		<Vue3Marquee :duration=50>
 			<article 
@@ -23,7 +23,8 @@
 	}
 	.title {
 		background: darkred;
-		font-size: 1rem;
+	    box-shadow: 1em 0 1em 0 black;
+		font-size: 1.5rem;
 		margin: 0;
 		padding: 0 0.5em;
 		position: absolute;
@@ -31,17 +32,15 @@
 	}
 	.item {
 		display: inline-block;
+		font-weight: bold;
 
 		margin: 0;
 		margin-right: 3em;
 	}
 </style>
 
-<script setup>
-	import { Vue3Marquee } from "vue3-marquee";
-	import 'vue3-marquee/dist/style.css';
-
-	const items = ["Everything is as it should be.",
+<script lang="ts">
+	const default_items:string[] = ["Everything is as it should be.",
 			"Nothing happened in Factory #4, please do not approach it.",
 			"DO NOT DANCE.",
 			"A good employee is an obedient employee.",
@@ -55,7 +54,28 @@
 			"Polybius is a workplace, not a pub or club.",
 			"No drinking or selling alcohol on company grounds.",
 			"No, seriously, no drinking."];
+</script>
 
-	const title = "News:";
+<script setup lang="ts">
+	import { defineProps, reactive } from 'vue';
+	import { Vue3Marquee } from "vue3-marquee";
+	import 'vue3-marquee/dist/style.css';
+
+
+
+
+	const props = defineProps({
+		items: {
+			type: Object,
+			default: default_items
+		},
+		title: {
+			type: String,
+			default: 'News:'
+		}
+	});
+
+	const items = reactive(props.items);
+
 
 </script>

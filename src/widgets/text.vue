@@ -7,7 +7,7 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
     // Do we need this as a widget??
 
 

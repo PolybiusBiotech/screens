@@ -1,16 +1,16 @@
-import PolybiusMVP from '@/views/PolybiusMVP.vue'
+import Demo1 from '@/views/demo1.vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'root',
-    component: PolybiusMVP
+    component: Demo1
   },
   {
-    path: '/polybius',
-    name: 'polybius',
-    component: PolybiusMVP
+    path: '/demo1',
+    name: 'demo1',
+    component: Demo1
   }
   // {
   //   path: '/home',

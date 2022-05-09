@@ -11,70 +11,84 @@
 	}
 </style>
 
-<script setup>
-    import { computed, onMounted } from 'vue';
+<script lang="ts">
+	type GraphType = "bar" | "line";
+
+	const animations = { // Fun animations we can use
+		"none": null,
+		"wobbly": {
+			tension: {
+				duration: 1000,
+				easing: 'linear',
+				from: 1,
+				to: 0,
+				loop: true
+            }
+        },
+    }
+
+
+	type AnimationName = {
+		[P in (keyof typeof animations)] : String;
+	}
+
+
+    let interval;
+
+
+</script>
+<script setup lang="ts">
+    import { onMounted, PropType } from 'vue';
     import { Chart, registerables } from 'chart.js';
     Chart.register(...registerables);
 
-    const uid = 'chart' + Math.random();
+    const uid:string = 'chart' + Math.random();
 
-    // TODO import / update
-    const generateData = () => { return {
-        labels: ['A', 'B', 'C', 'D', 'E', 'F'],
-        datasets: [{
-            label: '',
-            data: new Array(6).fill(0).map(()=>Math.random()*20),
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 2
-        }]
-    } };
+    const props = defineProps({
+		animation: {
+			type: String,
+			default: 'none'
+		},
+        dataRetriever: { 
+			// If static data, just return the JSON. If dynamic, retrieve it and set an interval.
+			// Function should return whatever chart.js has under "data"
+            type: Function as PropType <Function>,
+            default: null
+        }, 
+		graphType: {
+			type:  Object as PropType <GraphType>,
+			default: 'bar'
+		},
+        interval: { // in milliseconds, 0 for no refresh
+            type: Number as PropType <Number>,
+            default: 0
+        }
+    });
 
-    let interval;
 
     onMounted(() => {
         const ctx = document.getElementById(uid);
         const chart = new Chart(ctx, {
-            type: 'line', // TODO prop
-            data: generateData(),
-            options: {
-				animations: {
-					tension: {
-						duration: 1000,
-						easing: 'linear',
-						from: 1,
-						to: 0,
-						loop: true
-					}
-				},
+            type: props.graphType,
+            data: props.dataRetriever.call(null),
+            options: { // TODO will we want to change these?
+				animation: animations[props.animation],
 				legend: false,
 				maintainAspectRatio: false,
 				responsive: true,
-				scales: {
-					y: {
-						min: 0,
-						max: 20
-					}
-				}
+				// scales: {
+				// 	y: {
+				// 		min: 0,
+				// 		max: 20
+				// 	}
+				// }
             },
         });
-        interval = setInterval(() => {
-            chart.data.datasets[0].data = generateData().datasets[0].data;
-            requestAnimationFrame(()=>chart.update());
-        }, 3000);
+		if (props.interval > 0) {
+			interval = setInterval(() => {
+				chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
+				requestAnimationFrame(()=>chart.update());
+			}, props.interval);
+		} 
     });
 </script>
