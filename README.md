@@ -28,9 +28,25 @@ This is all we need to run, no special server, just a regular web server (Apache
 Note that if we open it locally (double click index.html > get a file://something address) some functions may not work.
 That's because the browser limits file:// urls better. Best to avoid that if we can.
 
+Subdirs:
+```
+npm run build -- --base="/foo/"
+```
 
-# Folder structure
-## The important bits
+### Destination server & routes
+#### Or: are you getting 404s in production?
+The server should rewrite all 404s, or at least the ones that are valid paths, into index.html.
+For example, if the router (/src/router/index) has a path for /foo, containing your lovely "Foo" screen, 
+then on the **web server level** you need to have requests for /foo handled by index.html.
+We have it working for Apache, handled by /public/.htaccess . Add other files there and the build process will put them right under /dist/.
+
+Examples:
+https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+
+
+## Folder structure
+
+### The important bits
 
 /dist : Compiled ready for production static files
 /src : Code!
@@ -44,10 +60,8 @@ That's because the browser limits file:// urls better. Best to avoid that if we 
 Want a new widget? Ask Galia <emfcamp@ailaG.net> or duplicate one that you like. Don't forget to add it to /router/index.
 
 
-# TODO
+## TODO
 Testing?
 Widgets:
- - finish what we have, make them modifiable
- - schedule
  - any new ones that come up
 Define rebel stuff. Do we change layouts? Do we create a store that defines rebel_level and does things accordingly? Do we change the root element's class and have CSS that responds?

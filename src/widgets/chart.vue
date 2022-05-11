@@ -25,21 +25,22 @@
         },
     }
 
-let interval;
+let interval:any;
 
 
 </script>
 <script setup lang="ts">
-    import { onMounted, PropType } from 'vue';
+    import { onMounted, Prop, PropType } from 'vue';
     import { Chart, registerables } from 'chart.js';
     Chart.register(...registerables);
 
     const uid:string = 'chart' + Math.random();
 
     const props = defineProps({
+	
 		animation: {
-			type: Animation,
-			default: 'none'
+			type: String as PropType <string>,
+			default: 'none' 
 		},
         dataRetriever: { 
 			// If static data, just return the JSON. If dynamic, retrieve it and set an interval.
@@ -48,13 +49,17 @@ let interval;
             default: null
         }, 
 		graphType: { // See chart.js documentation
-			type:  String, //Object as PropType <GraphType>,
+			type:  String as PropType<any>,
 			default: 'bar'
 		},
-        interval : 0,
+        interval : {
+			type: Number as PropType <number>,
+			default: 0
+		},
 		yMax: {
-			type: Number as PropType <Number>,
-			optional: true
+			type: Number as PropType <number>,
+			default: -1
+			//optional: true
 		}
     });
 
