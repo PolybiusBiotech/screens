@@ -11,6 +11,7 @@ npm install
 npm run dev
 ```
 Then it will run at localhost:3000
+(or another port, it'll tell you)
 
 Or
 ```
@@ -57,11 +58,18 @@ https://router.vuejs.org/guide/essentials/history-mode.html#example-server-confi
 /src/components : Components that are not widgets.
 /src/router : Does URLs
 
-Want a new widget? Ask Galia <emfcamp@ailaG.net> or duplicate one that you like. Don't forget to add it to /router/index.
+/src/assets : Static files that are relevant for dev time
+/public/ : Static files that will just go into /dist (e.g. favicon, htaccess)
+
+Want a new widget, not sure how? Ask Galia <<emfcamp@ailaG.net>> or duplicate one that you like. Don't forget to add it to /router/index.
 
 
 ## TODO
 Testing?
 Widgets:
+ - Twitter?
+ - Generic API readers? (that is, make the schedule widget into a simple module that does APIs and a widget that uses it). <br> 
+	We could just copypaste the schedule widget, but will DRY bite us then?
  - any new ones that come up
+
 Define rebel stuff. Do we change layouts? Do we create a store that defines rebel_level and does things accordingly? Do we change the root element's class and have CSS that responds?
