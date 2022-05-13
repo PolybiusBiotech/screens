@@ -20,7 +20,7 @@
     </section>
     <section id="graphs">
         <div class="chart">
-            <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=20 />
+            <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=10 />
         </div>
         <div class="chart">
             <chart :dataRetriever="generateGraphData" :interval="3200" graphType="line" :yMax=20 animation="wobbly" />
@@ -58,6 +58,9 @@
         /* Space evenly */
         display: flex;
         flex-direction: column;
+    }
+    #graphs > * {
+        flex: 1;
     }
     .chart canvas {
         height: 30vh;

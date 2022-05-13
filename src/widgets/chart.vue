@@ -32,7 +32,10 @@ let interval:any;
 <script setup lang="ts">
     import { onMounted, Prop, PropType } from 'vue';
     import { Chart, registerables } from 'chart.js';
-    Chart.register(...registerables);
+	
+	import chartjsGauge from 'chartjs-gauge';
+
+	Chart.register(...registerables);
 
     const uid:string = 'chart' + Math.random();
 
@@ -56,6 +59,12 @@ let interval:any;
 			type: Number as PropType <number>,
 			default: 0
 		},
+		optionsDelta: {
+			// IMPORTANT
+			// does a SHALLOW merge. If you overwrite a default option you'll lose everything under it you didn't specifically mention.
+			type: Object as PropType <Object>,
+			default: {}
+		},
 		yMax: {
 			type: Number as PropType <number>,
 			default: -1
@@ -65,31 +74,55 @@ let interval:any;
 
 
     onMounted(() => {
-        const ctx:any = document.getElementById(uid);
-        const chart = new Chart(ctx, {
-            type: props.graphType,
-            data: props.dataRetriever.call(null),
-            options: { // TODO will we want to change these?
-				animation: animations[props.animation],
-				maintainAspectRatio: false,
-				plugins: { 
-					legend: { display: false } 
-				},
-				responsive: true,
-				scaleShowLabels: false,
+		const defaultOptions = { // TODO will we want to change these?
+			animation: animations[props.animation],
+			maintainAspectRatio: false,
+			plugins: { 
+				legend: { display: false } 
+			},
+			responsive: true,
+			scaleShowLabels: false,
 
-				scales: {
-					y: {
-						display: false,
-						min: 0,
-						max: props.yMax
-					}
+			scales: {
+				y: {
+					display: false,
+					min: 0,
 				}
-            },
-        });
+			}
+		};
+		if (props.yMax >= 0) {
+			defaultOptions.scales.y['max'] = props.yMax;
+		}
+
+		const options = Object.assign(props.optionsDelta, defaultOptions);
+        const ctx:any = document.getElementById(uid);
+			
+			//chartjs(ctx, options);
+		const config = {
+			type: props.graphType,
+			data: props.dataRetriever.call(null),
+			options
+		}
+		
+		let chart;
+		switch (props.graphType) {
+			case 'gauge':
+				chart = chartjsGauge(ctx, config);
+				break;
+			default:
+				chart = new Chart(ctx, config);
+				break;
+		}
 		if (props.interval > 0) {
 			interval = setInterval(() => {
-				chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
+				switch (props.graphType) {
+					case 'gauge':
+						chart.data.datasets[0].value = props.dataRetriever.call(null).datasets[0].value;
+						break;
+					default:
+						chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
+						break;
+				}
 				requestAnimationFrame(()=>chart.update());
 			}, props.interval);
 		} 
