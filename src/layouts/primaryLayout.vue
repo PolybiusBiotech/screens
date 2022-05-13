@@ -85,6 +85,9 @@
 		display: grid;
 		gap: 1vh 1vw;
 		grid-auto-flow: row;
+		height: 100%;
+        max-width:  100vw;
+        overflow: hidden;
 	}
 
 </style>

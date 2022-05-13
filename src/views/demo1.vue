@@ -47,9 +47,6 @@
             "About Graphs"
             "Schedule Graphs"
             "News News";
-        height: 100%;
-        max-width:  100vw;
-        overflow: hidden    ;
     }
 
     #about { grid-area: About; }
