@@ -20,10 +20,10 @@
     </section>
     <section id="graphs">
         <div class="chart">
-            <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" />
+            <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=20 />
         </div>
         <div class="chart">
-            <chart :dataRetriever="generateGraphData" :interval="3200" graphType="line" animation="wobbly" />
+            <chart :dataRetriever="generateGraphData" :interval="3200" graphType="line" :yMax=20 animation="wobbly" />
         </div>
         <div class="chart">
             <chart :dataRetriever="generateGraphData" :interval="2000" graphType="pie" />
@@ -38,9 +38,9 @@
     </layout>
 </template>
 
-<style>
+<style scoped>
 
-    #content {
+    :deep(#content) {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 3fr 4fr 4vh;
         grid-template-areas:
