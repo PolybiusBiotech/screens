@@ -1,0 +1,20 @@
+name: publish-gh-pages
+on:
+  push:
+jobs:
+  publish-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🚛
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install and Build 🚧
+        run: |
+          npm install
+          npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: dist
