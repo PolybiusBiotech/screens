@@ -1,9 +1,11 @@
 @import url('font-exo.css');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@100;900&display=swap');
 
 :root {
     --border-color: #0083d1;
     --primary-color: #0083d1;
-    --secondary_color: #ff7545;
+    --secondary-color: #ff7545;
+    --background-color: #151510;
 }
 
 * {
@@ -16,10 +18,12 @@ body {
 }
 
 #app {
-    background: black;
+    background: var(--background-color);
     color: var(--primary-color);
-    font-family: "Exo", sans-serif;
+    font-family: 'Tourney', cursive;
+    font-weight: 900;
     font-size: 3vh;
+    text-transform: uppercase;
 
     overflow: hidden;
 
@@ -29,6 +33,14 @@ body {
 
     height: 100vh;
     width: 100vw;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 1.6em;
+    background-color: var(--border-color);
+    color: var(--background-color);
+    padding: 0.2em;
 }
 
 h1:empty {

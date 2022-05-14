@@ -29,7 +29,7 @@
 	#layout {
 		/* Columns and rows data will be set in individual views */
 		border: var(--lines_base_width) solid var(--primary-color);
-		border-radius: 1.5vh;
+		border-radius: 5vh;
 		height: calc(100vh - 2*var(--lines_base_width));
 		margin: var(--lines_base_width);
 		overflow: hidden;
@@ -40,7 +40,7 @@
 	}
 
 	#notch {
-		background: black;
+		background: var(--background-color);
 		border-top: var(--lines_base_width) solid black;
 		margin: auto;
 		position: absolute;
@@ -54,7 +54,7 @@
         position: relative;
         width: 45%;
         z-index: 9999;
-    }    
+    }
         #notch .logo path {
             animation-name: spin;
             animation-duration: 6s;
@@ -62,7 +62,7 @@
             fill: none;
             stroke: var(--border-color);
             stroke-linecap: round;
-            stroke-linejoin: round; 
+            stroke-linejoin: round;
             stroke-width: calc(0.6 * var(--lines_base_width));
             transform-origin: center;
         }
@@ -73,10 +73,10 @@
         z-index: 100;
     }
         #notch .border path {
-            fill: black;
+            fill: var(--background-color);
             stroke: var(--border-color);
             stroke-linecap: round;
-            stroke-linejoin: round; 
+            stroke-linejoin: round;
             stroke-width: var(--lines_base_width);
             vector-effect: non-scaling-stroke;
         }

@@ -1,14 +1,14 @@
 <template>
 	<section>
 		<h1 class="title">{{ props.title }}</h1>
-		
+
 		<Vue3Marquee :duration=50>
-			<article 
-					class="item" 
-					v-for="item in items" 
-					:key="item" 
+			<article
+					class="item"
+					v-for="item in items"
+					:key="item"
 					v-html="item">
-				
+
 				</article>
 		</Vue3Marquee>
 	</section>
@@ -18,17 +18,23 @@
 <style scoped>
 	section {
 		line-height: 1.5em;
-		position: relative;
-		width: 100%;
+		position: fixed;
+		border-bottom-right-radius: 5vh;
+		border-bottom-left-radius: 5vh;
+		overflow: hidden;
+		left: calc(1.8*var(--lines_base_width));
+		right: calc(1.8*var(--lines_base_width));
+		bottom: calc(1.8*var(--lines_base_width));
 	}
 	.title {
-		background: darkred;
+		background: var(--primary-color);
 	    box-shadow: 1em 0 1em 0 black;
 		font-size: 1.5rem;
 		margin: 0;
-		padding: 0 0.5em;
+		padding: 0 0.5em 0 1em;
+
 		position: absolute;
-			top: 0; left: 0; z-index: 999;
+			top: 0; left: -5px; z-index: 999;
 	}
 	.item {
 		display: inline-block;
