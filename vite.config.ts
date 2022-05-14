@@ -15,5 +15,5 @@ export default defineConfig({
     port: 4173
   },
 
-  base: process.env.GITHUB_ACTIONS ? '/screen/' : '/'
+  base: process.env.GITHUB_ACTIONS ? '/screens/' : '/'
 })
