@@ -16,9 +16,8 @@
 				<slot />
 			<!-- End of content-->
 		</div>
+		<Glitch />
 	</main> <!-- #layout -->
-
-
 </template>
 
 <style scoped>
@@ -36,7 +35,6 @@
 		padding: var(--lines_base_width);
 		position: static;
 		width: calc(100vw - 2*var(--lines_base_width)) ;
-		z-index: 10;
 	}
 
 	#notch {
@@ -47,13 +45,11 @@
 			left: calc(50% - 0.50 * var(--notch_width));
 			top: 0;
 		width: var(--notch_width);
-		z-index: 999999;
 	}
     #notch .logo {
 		margin: auto;
         position: relative;
         width: 45%;
-        z-index: 9999;
     }
         #notch .logo path {
             animation-name: spin;
@@ -70,7 +66,6 @@
     #notch .border {
         position: absolute;
         top: 0;
-        z-index: 100;
     }
         #notch .border path {
             fill: var(--background-color);
@@ -91,3 +86,7 @@
 	}
 
 </style>
+
+<script setup lang="ts">
+    import Glitch from '@/glitches/glitch.vue';
+</script>
