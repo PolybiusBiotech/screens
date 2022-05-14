@@ -1,6 +1,6 @@
 <template>
     <div class="glitch" v-if='enabled'>
-        <video autoplay="" loop="true" muted="" playsinline="" width="100%" height="100%">
+        <video autoplay="true" loop="true" muted="true" width="100%" height="100%">
             <source src="@/assets/glitches/glitch1.webm" type="video/webm">
         </video>
         <h1>CONNECTION LOST</h1>
