@@ -10,12 +10,16 @@
         </Text>
     </section>
     <section id="map">
-        <Map room="life-support" />
+        <Map room="life-support" warning="canteen,ia1,storage" />
     </section>
-    <section id="schedule">
-        <schedule :eventsCB="eventsFilter">
-			<template #title>Training Plan [Partial]</template>
-		</schedule>
+    <section id="status">
+        <StatusTable title="System status">
+            <template #title>System status</template>
+            <template text="C02 Levels" status="nominal"/>
+            <template text="Flux status" status="nominal"/>
+            <template text="Filter capacity" status="critical"/>
+            <template text="Air pressure" status="warning"/>
+		</StatusTable>
     </section>
     <NewsMarquee id="news" />
     </layout>
@@ -28,12 +32,12 @@
         grid-template-rows: 3fr 4fr 4vh;
         grid-template-areas:
             "About Map"
-            "Schedule Map"
+            "Status Map"
             "News News";
     }
 
     #about { grid-area: About; }
-    #schedule { grid-area: Schedule; }
+    #status { grid-area: Status; }
     #map { grid-area: Map; }
     #news { grid-area: News; }
 
@@ -58,7 +62,7 @@
 <script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
     import NewsMarquee from '@/widgets/news-marquee.vue';
-    import Schedule from '@/widgets/schedule.vue';
+    import StatusTable from '@/widgets/status-table.vue';
     import Text from '@/widgets/text.vue';
     import Map from '@/widgets/map.vue';
 

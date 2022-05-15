@@ -2,7 +2,7 @@
 	<div class="map">
         <MapComponent :id="elementId" />
         <div class="legend">
-            <div class="legend-warning">FAILURE DETECTED</div>
+            <div class="legend-warning" v-if="hasWarnings">FAILURE DETECTED</div>
         </div>
 	</div>
 </template>
@@ -22,7 +22,7 @@
         animation-name: room-warning-keyframes;
         animation-duration: 1s;
         animation-iteration-count: infinite;
-        fill: var(--secondary-color);
+        fill: var(--warning-color);
     }
 
     .legend {
@@ -30,6 +30,7 @@
         right: 0;
         bottom: 0;
         text-align: right;
+        color: var(--background-color)
 
     }
     .legend div {
@@ -38,7 +39,7 @@
 
     }
     .legend-warning {
-        background-color: var(--secondary-color);
+        background-color: var(--warning-color);
     }
 
     @keyframes room-warning-keyframes {
@@ -55,7 +56,7 @@
 </script>
 
 <script setup>
-	import { computed, onBeforeUnmount, onMounted, ref} from 'vue';
+	import {onMounted} from 'vue';
     import MapComponent from './map.svg?component'
 
 	const props = defineProps({
@@ -63,27 +64,32 @@
 			type: String,
 			required: true
 		},
+        warning: {
+			type: String,
+		},
 	})
 
-    const roomsWarning = ['canteen', 'ia1', 'storage'];
+    const warningRooms = (props.warning || "").split(",").filter(Boolean);
+    const hasWarnings = warningRooms.length > 0;
 
     const elementId = 'map' + Math.random();
 
 	onMounted(()=>{
-        ref();
         const element = document.getElementById(elementId);
         const rooms = {};
         element.querySelectorAll("[class^=room-]").forEach((e, i) => {
             const name = e.classList[0].slice(5);
-
             rooms[name] = e;
             e.classList.add("room");
         });
-        console.log(rooms);
         rooms[props.room].classList.add('room-current');
 
-        roomsWarning.forEach((r, i) => {
-            rooms[r].classList.add('room-warning');
+        warningRooms.forEach((r, i) => {
+            if (rooms[r]) {
+                rooms[r].classList.add('room-warning');
+            } else {
+                console.warn(`room ${r} not found in list of rooms`);
+            }
         })
 
 	});

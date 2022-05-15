@@ -6,6 +6,10 @@
     --primary-color: #0083d1;
     --secondary-color: #ff7545;
     --background-color: #151510;
+    --positive-color: #26e120;
+    --warning-color: #ff7545;
+    --critical-color: #e12020;
+
 }
 
 * {
