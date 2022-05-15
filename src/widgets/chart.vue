@@ -32,7 +32,7 @@ let interval:any;
 <script setup lang="ts">
     import { onMounted, Prop, PropType } from 'vue';
     import { Chart, registerables } from 'chart.js';
-	
+
 	import chartjsGauge from 'chartjs-gauge';
 
 	Chart.register(...registerables);
@@ -40,17 +40,17 @@ let interval:any;
     const uid:string = 'chart' + Math.random();
 
     const props = defineProps({
-	
+
 		animation: {
 			type: String as PropType <string>,
-			default: 'none' 
+			default: 'none'
 		},
-        dataRetriever: { 
+        dataRetriever: {
 			// If static data, just return the JSON. If dynamic, retrieve it and set an interval.
 			// Function should return whatever chart.js has under "data"
             type: Function as PropType <Function>,
             default: null
-        }, 
+        },
 		graphType: { // See chart.js documentation
 			type:  String as PropType<any>,
 			default: 'bar'
@@ -77,8 +77,8 @@ let interval:any;
 		const defaultOptions = { // TODO will we want to change these?
 			animation: animations[props.animation],
 			maintainAspectRatio: false,
-			plugins: { 
-				legend: { display: false } 
+			plugins: {
+				legend: { display: false }
 			},
 			responsive: true,
 			scaleShowLabels: false,
@@ -96,14 +96,14 @@ let interval:any;
 
 		const options = Object.assign(props.optionsDelta, defaultOptions);
         const ctx:any = document.getElementById(uid);
-			
+
 			//chartjs(ctx, options);
 		const config = {
 			type: props.graphType,
 			data: props.dataRetriever.call(null),
 			options
 		}
-		
+
 		let chart;
 		switch (props.graphType) {
 			case 'gauge':
@@ -113,6 +113,7 @@ let interval:any;
 				chart = new Chart(ctx, config);
 				break;
 		}
+
 		if (props.interval > 0) {
 			interval = setInterval(() => {
 				switch (props.graphType) {
@@ -125,6 +126,6 @@ let interval:any;
 				}
 				requestAnimationFrame(()=>chart.update());
 			}, props.interval);
-		} 
+		}
     });
 </script>

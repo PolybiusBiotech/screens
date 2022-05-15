@@ -5,20 +5,16 @@
         <Text>
             <template #title>About Us</template>
             <p>
-                Bringing you the best there is and could be.
+                Polybius Biotech provides high quality solution for your business.
             </p>
             <p>
-                From us straight to your door.
+                Your safety is our number 1 priority.
             </p>
-            <p>
-                You do not need to fear anymore.
-            </p>
-            <p class="larger">
-                TRUST US.
-            </p>
+
         </Text>
     </section>
     <section id="graphs">
+        <h1>Data</h1>
         <div class="chart">
             <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=10 />
         </div>
@@ -58,8 +54,12 @@
         /* Space evenly */
         display: flex;
         flex-direction: column;
+
     }
-    #graphs > * {
+    h1 {
+        align-self: end;
+    }
+    #graphs > *:not(h1) {
         flex: 1;
     }
     .chart canvas {
@@ -71,7 +71,6 @@
     #schedule {
         max-width: 50vw;
         overflow: hidden;
-        padding: 1rem;
     }
 
 </style>
@@ -94,7 +93,7 @@
         labels: ['A', 'B', 'C', 'D', 'E', 'F'],
         datasets: [{
             label: '',
-            data: new Array(6).fill(0).map(()=>Math.random()*20),
+            data: new Array(6).fill(0).map(()=>Math.random()*10 + 10),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -111,7 +110,7 @@
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 2
+            borderWidth: 4
         }]
     } };
 </script>
