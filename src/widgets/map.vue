@@ -8,6 +8,9 @@
 </template>
 
 <style>
+    .map {
+        position: relative;
+    }
     .map svg {
         transform: rotate(35deg) translateX(35%)
     }
@@ -26,7 +29,7 @@
     }
 
     .legend {
-        position: relative;
+        position: absolute;
         right: 0;
         bottom: 0;
         text-align: right;
@@ -43,9 +46,9 @@
     }
 
     @keyframes room-warning-keyframes {
-        0%  { fill-opacity: 0.5; }
+        0%  { fill-opacity: 0.8; }
         50%  { fill-opacity: 1; }
-        100%  { fill-opacity: 0.5; }
+        100%  { fill-opacity: 0.8; }
     }
 
 </style>

@@ -54,7 +54,6 @@
     #schedule {
         max-width: 50vw;
         overflow: hidden;
-        padding: 1rem;
     }
 
 </style>

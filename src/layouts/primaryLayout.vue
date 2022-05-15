@@ -78,7 +78,8 @@
 
 	#content {
 		display: grid;
-		gap: 1vh 1vw;
+		gap: 2vh 2vw;
+		padding: 2vh 2vw;
 		grid-auto-flow: row;
 		height: 100%;
         max-width:  100vw;

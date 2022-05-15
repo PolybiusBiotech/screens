@@ -45,6 +45,7 @@ h1 {
     background-color: var(--border-color);
     color: var(--background-color);
     padding: 0.2em;
+    display: inline-block;
 }
 
 h1:empty {

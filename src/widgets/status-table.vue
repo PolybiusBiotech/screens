@@ -19,7 +19,7 @@
         width: 100%;
     }
 	td {
-        border: 1px solid var(--primary-color);
+        border: 0.2em solid var(--primary-color);
         padding: 0.25em;
     }
     td:first-child {
@@ -35,10 +35,19 @@
     .status-critical {
         background-color: var(--critical-color);
         color: var(--background-color);
+        animation-name: critical-keyframes;
+        animation-duration: 0.7s;
+        animation-iteration-count: infinite;
     }
     .status-warning {
         background-color: var(--warning-color);
         color: var(--background-color);
+    }
+
+    @keyframes critical-keyframes {
+        0%  { opacity: 0.5; }
+        50%  { opacity: 1; }
+        100%  { opacity: 0.5; }
     }
 
 </style>
