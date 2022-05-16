@@ -22,8 +22,8 @@
 
 <style scoped>
 	* {
-		--lines_base_width: 0.5vw;
-	    --notch_width: 20vw;
+		--lines_base_width: 0.5vmin;
+	    --notch_width: 20vmax;
 	}
 	#layout {
 		/* Columns and rows data will be set in individual views */
