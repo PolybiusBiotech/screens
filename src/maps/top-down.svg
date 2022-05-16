@@ -87,27 +87,27 @@
        style="stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 31.937086,29.291256 h 31.75 V 18.707922 H 53.103753 L 34.58292,0.1870889 0.1870885,34.582922 18.707921,53.103756 23.999588,47.812089 v 47.624997 h 7.937498 z"
        id="path2842"
-       class="room-ia2" />
+       class="area area-ia2" />
     <path
        style="stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 55.749586,76.916253 h 23.8125 v 23.812497 h -23.8125 V 76.916253"
        id="path5946"
-       class="room-canteen" />
+       class="area area-canteen" />
     <path
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 74.270419,18.707922 H 84.853752 L 103.37459,0.1870889 137.77042,34.582922 119.24959,53.103756 113.95792,47.812089 v 95.250001 h -7.9375 V 29.291256 H 74.270419 Z"
        id="path5981"
-       class="room-ia1" />
+       class="area area-ia1" />
     <path
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 63.687086,100.72875 h 15.875 v 7.9375 h -15.875 v -7.9375"
        id="path5983"
-       class="room-bar" />
+       class="area area-bar" />
     <path
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 31.937086,82.207919 h 15.875 v 18.520831 h -15.875 V 82.207919"
        id="path5985"
-       class="room-aquatic-augmentation-research" />
+       class="area area-aquatic-augmentation-research" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6009"
@@ -115,7 +115,7 @@
        height="21.166666"
        x="13.416254"
        y="95.43708"
-       class="room-ia3" />
+       class="area area-ia3" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6011"
@@ -123,7 +123,7 @@
        height="15.875"
        x="31.937088"
        y="100.72875"
-       class="room-lab-32a" />
+       class="area area-lab-32a" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6013"
@@ -131,7 +131,7 @@
        height="15.875"
        x="53.103756"
        y="111.31208"
-       class="room-life-support" />
+       class="area area-life-support" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6015"
@@ -139,7 +139,7 @@
        height="15.875"
        x="66.332924"
        y="111.31208"
-       class="room-plant-room" />
+       class="area area-plant-room" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6017"
@@ -147,7 +147,7 @@
        height="15.875"
        x="74.270416"
        y="127.18708"
-       class="room-ia4" />
+       class="area area-ia4" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6019"
@@ -155,12 +155,12 @@
        height="13.229166"
        x="50.45792"
        y="127.18708"
-       class="room-ia5" />
+       class="area area-ia5" />
     <path
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 31.937086,39.874589 H 53.103753 V 29.291256 H 84.853752 V 39.874589 H 95.437086 V 61.041253 H 82.207919 V 50.457922 H 50.45792 v 18.520831 h -7.9375 V 47.812089 H 31.937086 v -7.9375"
        id="path6054"
-       class="room-storage" />
+       class="area area-storage" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6078"
@@ -168,7 +168,7 @@
        height="76.729164"
        x="37.228756"
        y="127.18708"
-       class="room-walkway" />
+       class="area area-walkway" />
     <rect
        style="stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6080"
@@ -176,7 +176,7 @@
        height="26.458332"
        x="26.645422"
        y="203.91624"
-       class="room-landing-pad" />
+       class="area area-landing-pad" />
   </g>
   <g
      inkscape:groupmode="layer"

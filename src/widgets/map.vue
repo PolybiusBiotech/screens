@@ -1,8 +1,8 @@
 <template>
-	<div class="map">
-        <MapComponent :id="elementId" />
+	<div class="map" :id="elementId">
+        <slot />
         <div class="legend">
-            <div class="legend-warning" v-if="hasWarnings">FAILURE DETECTED</div>
+            <div class="legend-warning" v-if="hasWarnings"><slot name="warning"/></div>
         </div>
 	</div>
 </template>
@@ -10,19 +10,18 @@
 <style>
     .map {
         position: relative;
-    }
-    .map svg {
-        transform: rotate(35deg) translateX(35%)
-    }
-	.map svg .room {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
     }
 
-    .map svg .room-current {
+    .map svg .area-current {
         fill: #4b758e;
     }
 
-    .map svg .room-warning {
-        animation-name: room-warning-keyframes;
+    .map svg .area-warning {
+        animation-name: area-warning-keyframes;
         animation-duration: 1s;
         animation-iteration-count: infinite;
         fill: var(--warning-color);
@@ -45,10 +44,29 @@
         background-color: var(--warning-color);
     }
 
-    @keyframes room-warning-keyframes {
-        0%  { fill-opacity: 0.8; }
+    .animate-dash {
+        animation-name: dash-keyframes;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    svg text {
+        text-transform: none;
+        font-size: 0.5vmin;
+        font-weight: 900;
+        font-family: 'Tourney', cursive;
+    }
+
+    @keyframes area-warning-keyframes {
+        0%  { fill-opacity: 0.6; }
         50%  { fill-opacity: 1; }
-        100%  { fill-opacity: 0.8; }
+        100%  { fill-opacity: 0.6; }
+    }
+
+    @keyframes dash-keyframes {
+        0%  { stroke-dashoffset: 4; }
+        100%  { stroke-dashoffset: 0; }
     }
 
 </style>
@@ -60,41 +78,47 @@
 
 <script setup>
 	import {onMounted} from 'vue';
-    import MapComponent from './map.svg?component'
 
 	const props = defineProps({
-		room: {
-			type: String,
-			required: true
+		current: {
+			type: String
 		},
         warning: {
 			type: String,
 		},
 	})
 
-    const warningRooms = (props.warning || "").split(",").filter(Boolean);
-    const hasWarnings = warningRooms.length > 0;
+    const warningAreas = (props.warning || "").split(",").filter(Boolean);
+    const hasWarnings = warningAreas.length > 0;
 
     const elementId = 'map' + Math.random();
 
 	onMounted(()=>{
-        const element = document.getElementById(elementId);
-        const rooms = {};
-        element.querySelectorAll("[class^=room-]").forEach((e, i) => {
-            const name = e.classList[0].slice(5);
-            rooms[name] = e;
-            e.classList.add("room");
-        });
-        rooms[props.room].classList.add('room-current');
+        const parentElement = document.getElementById(elementId);
+        const svgElement = parentElement.querySelector('svg');
 
-        warningRooms.forEach((r, i) => {
-            if (rooms[r]) {
-                rooms[r].classList.add('room-warning');
+        // Make sure the map never overflows the viewport
+        const resize = () => {
+            svgElement.style.width = (parentElement.clientWidth - 5) + "px";
+            svgElement.style.height = (parentElement.clientHeight - 5) + "px";
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const areas = {};
+        svgElement.querySelectorAll(".area").forEach((e, i) => {
+            const name = Array.from(e.classList).find(e => e.indexOf('area-') === 0).slice(5);
+            areas[name] = e;
+        });
+        props.current && areas[props.current].classList.add('area-current');
+
+        warningAreas.forEach((area, i) => {
+            if (areas[area]) {
+                areas[area].classList.add('area-warning');
             } else {
-                console.warn(`room ${r} not found in list of rooms`);
+                console.warn(`area ${area} not found in list of areas ${areas.join(',')}`);
             }
         })
-
 	});
 
 </script>

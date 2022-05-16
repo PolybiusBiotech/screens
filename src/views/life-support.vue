@@ -10,7 +10,10 @@
         </Text>
     </section>
     <section id="map">
-        <Map room="life-support" warning="canteen,ia1,storage" />
+        <Map current="life-support" warning="canteen,ia1,storage">
+            <TopDownMap />
+            <template #warning>Failure detected</template>
+        </Map>
     </section>
     <section id="status">
         <StatusTable title="System status">
@@ -64,10 +67,5 @@
     import StatusTable from '@/widgets/status-table.vue';
     import Text from '@/widgets/text.vue';
     import Map from '@/widgets/map.vue';
-
-
-
-
-
-
+    import TopDownMap from '@/maps/top-down.svg'
 </script>
