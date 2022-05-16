@@ -2,6 +2,7 @@ import Menu from '@/components/mainMenu.vue'
 import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
 import LifeSupport from '@/views/life-support.vue'
+import LifeSupportDoor from '@/views/life-support-door.vue'
 import EntranceMap from '@/views/entrance-map.vue'
 import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router'
 
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/life-support',
     name: 'life-support',
     component: LifeSupport
+  },
+  {
+    path: '/life-support-door',
+    name: 'life-support-door',
+    component: LifeSupportDoor
   },
   {
     path: '/entrance-map',

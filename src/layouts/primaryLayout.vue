@@ -1,5 +1,5 @@
 <template>
-	<main id="layout">
+	<main id="layout" :class="largeNotch ? 'notch-large' : ''">
 		 <div id="notch"><!-- class="animate__animated animate__flip animate__infinite animate__slower animate__delay-2s"-->
 			<svg class="border" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
 				<path d="M 0 0 L 100 50 L 200 0" />
@@ -25,6 +25,9 @@
 		--lines_base_width: 0.5vmin;
 	    --notch_width: 20vmax;
 	}
+	.notch-large * {
+		--notch_width: 35vmax;
+	}
 	#layout {
 		/* Columns and rows data will be set in individual views */
 		border: var(--lines_base_width) solid var(--primary-color);
@@ -38,7 +41,6 @@
 	}
 
 	#notch {
-		background: var(--background-color);
 		border-top: var(--lines_base_width) solid black;
 		margin: auto;
 		position: absolute;
@@ -90,4 +92,12 @@
 
 <script setup lang="ts">
     import Glitch from '@/glitches/glitch.vue';
+
+	const props = defineProps({
+		largeNotch: {
+			type: Boolean
+		},
+	});
+
+	const largeNotch = Boolean(props.largeNotch);
 </script>

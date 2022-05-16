@@ -3,6 +3,7 @@
 	<a href="#demo1">Demo1</a>
 	<a href="#demo2">Demo2</a>
 	<a href="#life-support">Life support</a>
+	<a href="#life-support-door">Life support (Door)</a>
 	<a href="#entrance-map">Entrance (Map)</a>
 
 </nav>
