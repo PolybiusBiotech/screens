@@ -3,7 +3,7 @@
         <div :class="'button '+ (status ? 'button-on' : 'button-off')+ ' ' + (error ? 'button-error' : '') " @click="switchState()">
             <div class="indicator" />
             <div class="button-label">
-               {{error ? 'access needed' : status ? props.onText : props.offText}}
+               {{error ? 'access denied' : status ? props.onText : props.offText}}
             </div>
 
         </div>
