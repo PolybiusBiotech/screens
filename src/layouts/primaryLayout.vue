@@ -28,7 +28,7 @@
 	#layout {
 		/* Columns and rows data will be set in individual views */
 		border: var(--lines_base_width) solid var(--primary-color);
-		border-radius: 5vh;
+		border-radius: 5vmin;
 		height: calc(100vh - 2*var(--lines_base_width));
 		margin: var(--lines_base_width);
 		overflow: hidden;
