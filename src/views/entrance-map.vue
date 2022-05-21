@@ -1,7 +1,7 @@
 <template>
 <layout>
     <section id="map">
-        <Map warning="lower-tunnel,observation">
+        <Map warning="tunnel,observation">
             <ProfileMap />
             <template #warning>Contamination Warning</template>
         </Map>

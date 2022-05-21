@@ -16,6 +16,10 @@
         height: 100%;
     }
 
+    .map svg .area {
+        fill: var(--background-color);
+    }
+
     .map svg .area-current {
         fill: #4b758e;
     }
@@ -32,8 +36,7 @@
         right: 0;
         bottom: 0;
         text-align: right;
-        color: var(--background-color)
-
+        color: var(--background-color);
     }
     .legend div {
         display: inline-block;
