@@ -62,6 +62,9 @@
     });
     const slots = useSlots();
     let items = ref([]);
-    items.value = [...(Array.from(slots.default()).map(s => s.props)), ...props.items] // Either-or. Why? No internet no time to figure out. TODO
-        .filter(a=>a); // remove nulls
+    if (slots && slots.default)
+        items.value = [...items.value, ...slots.default().map(s => s.props)];
+    if (props.items)
+        items.value = [...items.value, ...props.items]; // Either-or. Why? No internet no time to figure out. TODO
+        
 </script>
