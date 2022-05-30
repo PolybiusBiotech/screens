@@ -6,23 +6,30 @@
 	</section>
 
 	<section id="jobs">
-		<Chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=100 />
+		<Chart :dataRetriever="generateGraphData" :interval="-1	" graphType="bar" :yMax=100 />
 	</section>
     <NewsMarquee id="news" />
+
+	<section id="countdown">
+		<Countdown :end="almost_end_of_EMF"
+				fontSize="15vh" />
+	</section>
 </layout>
 </template>
 
 <style scoped>
     :deep(#content) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 4vh;
+        grid-template-rows: 1fr auto 4vh;
         grid-template-areas:
             "Tasks Jobs"
+			"Tasks Countdown"
             "News News";
     }
 
     #tasks { grid-area: Tasks; }
     #jobs { grid-area: Jobs; }
+    #countdown { grid-area: Countdown; }
     #news { grid-area: News; }
 
     #tasks :deep(.status-delayed) {
@@ -38,6 +45,10 @@
     }
 
 
+	#jobs .chart {
+		height: 100%;
+	}
+
 
     @keyframes critical-keyframes {
         0%  { opacity: 0.5; }
@@ -52,8 +63,9 @@
 <script setup>
     import Layout from '@/layouts/primaryLayout.vue';
 
-	import Chart from "../widgets/chart.vue";
-	import NewsMarquee from "../widgets/news-marquee.vue";
+	import Chart from "@/widgets/chart.vue";
+	import Countdown from '@/widgets/countdown.vue';
+	import NewsMarquee from "@/widgets/news-marquee.vue";
     import StatusTable from '@/widgets/status-table.vue';
 
 	const tasks = [
@@ -65,13 +77,11 @@
 		{ text: "Replacing airlock in Tank 21", status: "delayed" },
 	];
 
-	const ailaG = [{text:"HAir pressure", status:"Hwarning"}];
-
-	function generateGraphData() { return {
+	function generateGraphData() { return { // TODO
         labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
         datasets: [{
             label: '',
-            data: new Array(6).fill(0).map(()=>Math.random()*10 + 10),
+            data: [50, 30, 80, 10, 100],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -91,5 +101,8 @@
             borderWidth: 4
         }]
     } };
+
+	const almost_end_of_EMF = new Date(2022, 5, 5, 23, 59, 59); // Note: subtract 1 from RL month. June = 5
+
 	
 </script>
