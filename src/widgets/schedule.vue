@@ -4,17 +4,7 @@
     <section>
 		<h1>
 	        <slot name="title" />
-			</h1>
-        <!-- <table>
-            <tbody>
-                <tr v-for="event in events" :key="event">
-           			<td class="time">{{ event.start_time }}</td>
-           			<td class="title">{{ event.title }}</td>
-           			<td class="venue">{{ event.venue }}</td>
-        		</tr>
-				
-			</tbody>
-		</table> -->
+		</h1>
 		<ul>
 			<li v-for="event in events" :key="event">
 				<time class="time">{{ event.start_time }}</time>

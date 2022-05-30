@@ -55,6 +55,13 @@
 <script setup lang="ts">
     import { onMounted, ref, useSlots } from 'vue';
 
+    const props = defineProps({
+        items: {
+            default: []
+        }
+    });
     const slots = useSlots();
-    const items = (slots.default().map(s => s.props));
+    let items = ref([]);
+    items.value = [...(slots.default().map(s => s.props)), ...props.items].filter(a=>a);
+    console.log('b',[...items.value]);
 </script>

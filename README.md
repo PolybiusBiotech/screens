@@ -34,6 +34,7 @@ Subdirs:
 npm run build -- --base="/foo/"
 ```
 
+/* THIS IS IRRELEVANT SINCE WE CHANGED TO HASH MODE (index.html#foo rather than /foo)
 ### Destination server & routes
 #### Or: are you getting 404s in production?
 The server should rewrite all 404s, or at least the ones that are valid paths, into index.html.
@@ -43,7 +44,7 @@ We have it working for Apache, handled by /public/.htaccess . Add other files th
 
 Examples:
 https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
-
+*/
 
 ## Folder structure
 

@@ -58,3 +58,11 @@ h1 {
 h1:empty {
     display: none;
 }
+
+
+/* Galia says I HATE THIS it's not semantic but it's last minute */
+.vertically-centered {
+    display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+}

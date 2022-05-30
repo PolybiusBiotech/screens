@@ -1,11 +1,18 @@
 <template>
 <nav>
-	<a href="#demo1">Demo1</a>
-	<a href="#demo2">Demo2</a>
-	<a href="#life-support">Life support</a>
-	<a href="#life-support-door">Life support (Door)</a>
-	<a href="#entrance-map">Entrance (Map)</a>
-
+	<router-link to="/demo1">Demo1</router-link>
+	<router-link to="/demo2">Demo2</router-link>
+	<router-link to="/aquatic-augmentation-research">Aquatic Augmentation Research</router-link>
+	<router-link to="/aquatic-augmentation-research-door">Aquatic Augmentation Research - Door</router-link>
+	<router-link to="/canteen">Canteen</router-link>
+	<router-link to="/canteen-door1">Canteen (Door 1)</router-link>
+	<router-link to="/canteen-door2">Canteen (Door 2)</router-link>
+	<router-link to="/entrance-map">Entrance (Map)</router-link>
+	<router-link to="/laboratory-32a">Laboratory 32A</router-link>
+	<router-link to="/life-support">Life Support</router-link>
+	<router-link to="/life-support-door">Life Support - Door</router-link>
+	<router-link to="/plant-room">Plant Room</router-link>
+	<router-link to="/plant-room-door">Plant Room - Door</router-link>
 </nav>
 </template>
 
