@@ -1,6 +1,7 @@
 import Menu from '@/components/mainMenu.vue'
 import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
+import Entrance from '@/views/entrance.vue'
 import EntranceMap from '@/views/entrance-map.vue'
 import LifeSupport from '@/views/life-support.vue'
 import LifeSupportDoor from '@/views/life-support-door.vue'
@@ -56,6 +57,11 @@ const routes: Array<RouteRecordRaw> = [
     component: Demo2
   },
 
+  {
+    path: '/entrance',
+    name: 'entrance',
+    component: Entrance
+  },
   {
     path: '/entrance-map',
     name: 'entrance-map',

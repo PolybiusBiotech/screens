@@ -33,7 +33,7 @@
 	import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 	const props = defineProps({
 		end: {
-			type: Date,
+			//type: Date | "end_of_EMF" | "almost_end_of_EMF", // but it is buggy and I have no time
 			required: true
 		},
 		fontSize: {
@@ -42,7 +42,17 @@
 		}
 	})
 	
-	const end = props.end;
+	let end;
+	switch(props.end) {
+		case 'end_of_EMF':
+			end = new Date(2022,5,6,11,0); // Note: month numbers start at 0
+			break;
+		case 'almost_end_of_EMF':
+			end = new Date(2022,5,5,23,59);
+			break;
+		default:
+			end = props.end;
+	}
 	let current = ref(new Date());
 
 	const seconds_left = computed(() => {

@@ -7,6 +7,7 @@
 	<router-link to="/canteen">Canteen</router-link>
 	<router-link to="/canteen-door1">Canteen (Door 1)</router-link>
 	<router-link to="/canteen-door2">Canteen (Door 2)</router-link>
+	<router-link to="/entrance">Entrance</router-link>
 	<router-link to="/entrance-map">Entrance (Map)</router-link>
 	<router-link to="/laboratory-32a">Laboratory 32A</router-link>
 	<router-link to="/life-support">Life Support</router-link>
