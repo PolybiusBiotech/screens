@@ -100,4 +100,28 @@
 	});
 
 	const largeNotch = Boolean(props.largeNotch);
+
+	(function logoAnimateIIFE() {
+		let is_animating = false;
+		let logoInterval = setInterval(()=> {
+			if (is_animating) return;
+			is_animating = true;
+			const el = document.querySelector<HTMLElement>('#notch .logo');
+			el.style.setProperty('--animate-duration', '2s');
+			el.style.setProperty('--animate-repeat', '1');
+
+			const classes = ['animate__animated', 'animate__flip', 'animate__repeat-1'];
+			el.classList.add(...classes);
+			const stopAnim = event => 	{
+				if (!is_animating) return;
+				if (event)
+					event.stopPropagation();
+				is_animating = false;
+				setTimeout(()=>el.classList.remove(...classes), 1000);
+			}
+			el.addEventListener('animationend', stopAnim, { once: true } );
+			setTimeout(stopAnim, 3000);
+			
+		}, 10000);
+	})();
 </script>
