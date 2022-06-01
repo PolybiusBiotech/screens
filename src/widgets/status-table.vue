@@ -5,7 +5,7 @@
             <tbody>
                 <tr v-for="({text, status}, index) in items">
                     <td>{{text}}</td>
-                    <td><span :class="`status status-${status}`">{{status}}</span></td>
+                    <td><span :class="`status status-${statusClasses[index]}`">{{status}}</span></td>
                 </tr>
             </tbody>
         </table>
@@ -53,7 +53,7 @@
 </style>
 
 <script setup lang="ts">
-    import { onMounted, ref, useSlots } from 'vue';
+    import { computed, ref, useSlots } from 'vue';
 
     const props = defineProps({
         items: {
@@ -66,5 +66,13 @@
         items.value = [...items.value, ...slots.default().map(s => s.props)];
     if (props.items)
         items.value = [...items.value, ...props.items]; // Either-or. Why? No internet no time to figure out. TODO
-        
+    
+    const statusClasses = computed( () => { // fugly
+        return items.value.map(item => {
+            const raw = item.status.toLowerCase();
+            if (item.statusClass) 
+                return item.statusClass.toLowerCase();
+            return raw;  
+        });
+    })
 </script>
