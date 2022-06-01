@@ -1,5 +1,6 @@
 import Menu from '@/components/mainMenu.vue'
 import Aquatic from '@/views/aquatic-augmentation-research.vue'
+import AquaticDoor from '@/views/aquatic-augmentation-research-door.vue'
 import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
 import Entrance from '@/views/entrance.vue'
@@ -37,25 +38,31 @@ const routes: Array<RouteRecordRaw> = [
   { 
     path: '/aquatic-augmentation-research-door',
     name: 'aquatic-augmentation-research-door',
-    component: Demo2
+    component: AquaticDoor
   },
 
   { 
     path: '/canteen',
     name: 'canteen',
-    component: Demo2
+    component: Demo1
   },
 
   { 
     path: '/canteen-door1',
     name: 'canteen-door1',
-    component: Demo2
+    component: Demo1
   },
 
   { 
     path: '/canteen-door2',
     name: 'canteen-door2',
-    component: Demo2
+    component: Demo1
+  },
+  
+  { 
+    path: '/default',
+    name: 'default',
+    component: Demo1
   },
 
   {
@@ -72,15 +79,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/laboratory32a',
     name: 'laboratory32a',
-    component: Demo2
+    component: Demo1
   },
   {
     path: '/laboratory32a-door',
     name: 'laboratory32a-door',
-    component: Demo2
+    component: Demo1
   },
 
-  
   {
     path: '/life-support',
     name: 'life-support',
@@ -100,7 +106,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/plant-room-door',
     name: 'plant-room-door',
-    component: PlantRoom
+    component: Demo1
   },
 
   // Don't forget to add paths to /src/components/mainMenu.vue !

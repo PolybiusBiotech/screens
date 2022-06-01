@@ -59,7 +59,8 @@
 </style>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { stat } from 'fs';
+import { ref } from 'vue';
 
     const props = defineProps({
 		initial: {
@@ -83,9 +84,10 @@
     const error = ref(false);
     const switchState = () => {
         status.value = !status.value;
-        if (props.override) {
+        if (props.override && props.override === 'off') {
             setTimeout(() => {
-                status.value = props.override === 'on';
+                //status.value = props.override === 'on';
+                status.value = (props.initial === 'on');
                 error.value = true;
                 setTimeout(() => {
                     error.value = false;
