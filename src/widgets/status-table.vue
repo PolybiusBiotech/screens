@@ -39,6 +39,10 @@
         animation-duration: 0.7s;
         animation-iteration-count: infinite;
     }
+    .status-ok {
+        background-color: var(--positive-color);
+        color: var(--background-color);
+    }
     .status-warning {
         background-color: var(--warning-color);
         color: var(--background-color);
