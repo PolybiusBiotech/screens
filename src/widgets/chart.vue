@@ -51,6 +51,14 @@ let interval:any;
             type: Function as PropType <Function>,
             default: null
         },
+		displayLegend: {
+			type: Boolean,
+			default: false
+		},
+		displayLegendPosition: {
+			type: String,
+			default: 'top'
+		},
 		graphType: { // See chart.js documentation
 			type:  String as PropType<any>,
 			default: 'bar'
@@ -78,7 +86,14 @@ let interval:any;
 			animation: animations[props.animation],
 			maintainAspectRatio: false,
 			plugins: {
-				legend: { display: false }
+				legend: { 
+					display: props.displayLegend,
+					position: props.displayLegendPosition,
+					labels: {
+						color: '#0083d1', // TODO var(--primary-color) somehow
+						font: { size: 20 },
+					}
+				}
 			},
 			responsive: true,
 			scaleShowLabels: false,

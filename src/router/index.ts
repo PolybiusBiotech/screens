@@ -1,4 +1,5 @@
 import Menu from '@/components/mainMenu.vue'
+import Aquatic from '@/views/aquatic-augmentation-research.vue'
 import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
 import Entrance from '@/views/entrance.vue'
@@ -30,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   { 
     path: '/aquatic-augmentation-research',
     name: 'aquatic-augmentation-research',
-    component: Demo2
+    component: Aquatic
   },
 
   { 
