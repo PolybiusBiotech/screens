@@ -3,7 +3,7 @@
 
     <section id="about">
         <Text>
-            <template #title>About Us</template>
+            <template #title>Welcome, employees.</template>
             <p>
                 Polybius Biotech provides high quality solution for your business.
             </p>
@@ -14,9 +14,9 @@
         </Text>
     </section>
     <section id="graphs">
-        <h1>Data</h1>
+        <!--h1>Data</h1-->
         <div class="chart">
-            <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=10 />
+            <chart :dataRetriever="generateGraphData" :interval="1500" graphType="bar" :yMax=11 />
         </div>
         <div class="chart">
             <chart :dataRetriever="generateGraphData" :interval="3200" graphType="line" :yMax=20 animation="wobbly" />
@@ -54,7 +54,7 @@
         /* Space evenly */
         display: flex;
         flex-direction: column;
-
+        padding-top: 10vh;
     }
     h1 {
         align-self: end;
@@ -90,7 +90,7 @@
 
 
     const generateGraphData = () => { return {
-        labels: ['A', 'B', 'C', 'D', 'E', 'F'],
+        labels: ['α', 'β', 'γ', 'δ', 'ε', 'ζ'],
         datasets: [{
             label: '',
             data: new Array(6).fill(0).map(()=>Math.random()*10 + 10),
