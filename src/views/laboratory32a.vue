@@ -111,9 +111,10 @@
     import StatusTable from '@/widgets/status-table.vue';
     
 
-	function generateGraphData() { return {
-		labels: new Array(4).fill(0).map((n,i)=>i*20),
+	function generateGraphData() { return { 
+		labels: new Array(4).fill(0).map((n,i)=>`Week ${i+1}	`),
 		datasets: [
+			{ label: 'Artemia NYOS' },
 			{
 				label: 'Control', // Should grow linearly
 				data: [10, 30, 50, 70],
