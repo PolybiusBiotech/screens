@@ -2,7 +2,8 @@
     <div :class="'keypad ' + (error ? 'keypad-error': '')">
         <div class="input">{{inputFilled}}</div>
         <div class="keys">
-            <button v-for="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, '#', 0, '@']" @click="press(number)">
+            <!--button v-for="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, '#', 0, '@']" @click="press(number)"-->
+            <button v-for="number in numberDicts[numbersType]" @click="press(number)">
                 {{ number }}
             </button>
         </div>
@@ -62,7 +63,10 @@
     import { ref, computed } from 'vue';
 
     const props = defineProps({
-
+        numbersType: {
+            type: String,
+            default: 'arabic'
+        }
 	});
 
     const input = ref("");
@@ -86,6 +90,11 @@
                 input.value = "";
             }, 500);
         }
+    }
+
+    const numberDicts = { // First member will be ignored!
+        arabic: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, '#', 0, '@'],
+        greek: ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', '∰', 'κ', '∃'],
     }
 
 </script>
