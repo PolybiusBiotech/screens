@@ -10,7 +10,8 @@ import EntranceMap from '@/views/entrance-map.vue'
 import Laboratory32a from '@/views/laboratory32a.vue'
 import LifeSupport from '@/views/life-support.vue'
 import LifeSupportDoor from '@/views/life-support-door.vue'
-import PlantRoom from '../views/plant-room.vue'
+import PlantRoom from '@/views/plant-room.vue'
+import PlantRoomDoor from '@/views/plant-room-door.vue'
 
 import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router'
 
@@ -109,7 +110,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/plant-room-door',
     name: 'plant-room-door',
-    component: Demo1
+    component: PlantRoomDoor
   },
 
   // Don't forget to add paths to /src/components/mainMenu.vue !
