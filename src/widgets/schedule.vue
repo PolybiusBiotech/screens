@@ -60,7 +60,7 @@
 
 <script setup lang="ts">
     import { onMounted, ref } from 'vue';
-	const debug = true; // TODO
+	const debug = false; // TODO
 
 	const props = defineProps(['eventsCB']); // eventsCB = function to apply to events, e.g. keep first 5
 
