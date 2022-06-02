@@ -2,6 +2,7 @@ import Menu from '@/components/mainMenu.vue'
 import Aquatic from '@/views/aquatic-augmentation-research.vue'
 import AquaticDoor from '@/views/aquatic-augmentation-research-door.vue'
 import CanteenDoor1 from '@/views/canteen-door1.vue'
+import CanteenDoor2 from '@/views/canteen-door2.vue'
 import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
 import Entrance from '@/views/entrance.vue'
@@ -58,7 +59,7 @@ const routes: Array<RouteRecordRaw> = [
   { 
     path: '/canteen-door2',
     name: 'canteen-door2',
-    component: Demo1
+    component: CanteenDoor2
   },
   
   { 
