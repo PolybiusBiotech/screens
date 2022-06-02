@@ -4,7 +4,6 @@
 	<router-link to="/demo2">Demo2</router-link>
 	<router-link to="/aquatic-augmentation-research">Aquatic Augmentation Research</router-link>
 	<router-link to="/aquatic-augmentation-research-door">Aquatic Augmentation Research - Door</router-link>
-	<router-link to="/canteen">Canteen</router-link>
 	<router-link to="/canteen-door1">Canteen (Door 1)</router-link>
 	<router-link to="/canteen-door2">Canteen (Door 2)</router-link>
 	<router-link to="/entrance">Entrance</router-link>
