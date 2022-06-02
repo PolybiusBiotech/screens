@@ -23,6 +23,15 @@
 				loop: true
             }
         },
+		"wobbly-light": {
+			tension: {
+				duration: 10000,
+				easing: 'linear',
+				from: 1,
+				to: 0,
+				loop: true
+            }
+        },
     }
 
 let interval:any;
@@ -91,7 +100,11 @@ let interval:any;
 					position: props.displayLegendPosition,
 					labels: {
 						color: '#0083d1', // TODO var(--primary-color) somehow
-						font: { size: 20 },
+						font: { 
+							family: "'Tourney'",
+							size: 20, 
+							weight: '900',
+						},
 					}
 				}
 			},

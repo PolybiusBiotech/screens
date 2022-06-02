@@ -9,7 +9,7 @@
 	<router-link to="/canteen-door2">Canteen (Door 2)</router-link>
 	<router-link to="/entrance">Entrance</router-link>
 	<router-link to="/entrance-map">Entrance (Map)</router-link>
-	<router-link to="/laboratory-32a">Laboratory 32A</router-link>
+	<router-link to="/laboratory32a">Laboratory 32A</router-link>
 	<router-link to="/life-support">Life Support</router-link>
 	<router-link to="/life-support-door">Life Support - Door</router-link>
 	<router-link to="/plant-room">Plant Room</router-link>

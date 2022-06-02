@@ -5,6 +5,7 @@ import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
 import Entrance from '@/views/entrance.vue'
 import EntranceMap from '@/views/entrance-map.vue'
+import Laboratory32a from '@/views/laboratory32a.vue'
 import LifeSupport from '@/views/life-support.vue'
 import LifeSupportDoor from '@/views/life-support-door.vue'
 import PlantRoom from '../views/plant-room.vue'
@@ -79,7 +80,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/laboratory32a',
     name: 'laboratory32a',
-    component: Demo1
+    component: Laboratory32a
   },
   {
     path: '/laboratory32a-door',
