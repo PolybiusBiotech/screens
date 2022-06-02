@@ -3,7 +3,7 @@
         <div :class="'button '+ (status ? 'button-on' : 'button-off')+ ' ' + (error ? 'button-error' : '') " @click="switchState()">
             <div class="indicator" />
             <div class="button-label">
-               {{error ? 'access denied' : status ? props.onText : props.offText}}
+               {{error ? errorMessage : status ? props.onText : props.offText}}
             </div>
 
         </div>
@@ -63,6 +63,10 @@
 import { ref } from 'vue';
 
     const props = defineProps({
+        errorMessage: {
+            type: String,
+            default: 'access denied'
+        },
 		initial: {
 			type: String,
             default: 'on'
