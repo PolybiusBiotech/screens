@@ -89,7 +89,7 @@
 		font-size: 2vh;
 		margin-top: 12vh;
 	}
-	#projects tr :deep(td:first-child()) {
+	#projects tr :deep(td:first-child) {
 		white-space: nowrap;
 	}
 	#graph {
