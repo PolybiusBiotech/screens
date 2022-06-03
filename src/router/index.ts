@@ -5,6 +5,7 @@ import CanteenDoor1 from '@/views/canteen-door1.vue'
 import CanteenDoor2 from '@/views/canteen-door2.vue'
 import Demo1 from '@/views/demo1.vue'
 import Demo2 from '@/views/demo2.vue'
+import Bar from '@/views/bar.vue'
 import Entrance from '@/views/entrance.vue'
 import EntranceMap from '@/views/entrance-map.vue'
 import Laboratory32a from '@/views/laboratory32a.vue'
@@ -111,6 +112,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/plant-room-door',
     name: 'plant-room-door',
     component: PlantRoomDoor
+  },
+  {
+    path: '/bar',
+    name: 'bar',
+    component: Bar
   },
 
   // Don't forget to add paths to /src/components/mainMenu.vue !

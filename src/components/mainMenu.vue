@@ -13,6 +13,7 @@
 	<router-link to="/life-support-door">Life Support - Door</router-link>
 	<router-link to="/plant-room">Plant Room</router-link>
 	<router-link to="/plant-room-door">Plant Room - Door</router-link>
+	<router-link to="/bar">Bar</router-link>
 </nav>
 </template>
 
