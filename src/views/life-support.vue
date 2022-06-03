@@ -10,7 +10,7 @@
         </Text>
     </section>
     <section id="map">
-        <Map current="life-support" warning="canteen,ia1,storage">
+        <Map current="life-support" warning=""> 
             <TopDownMap />
             <template #warning>Failure detected</template>
         </Map>
@@ -20,7 +20,7 @@
             <template #title>System status</template>
             <template text="C02 Levels" status="nominal"/>
             <template text="Flux status" status="nominal"/>
-            <template text="Filter capacity" status="critical"/>
+            <template text="Filter capacity" status="nominal"/>
             <template text="Air pressure" status="warning"/>
 		</StatusTable>
     </section>

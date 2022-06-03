@@ -4,8 +4,66 @@
  *  - full: the screen is taken over by video'
  */
 
+const allGlitches = ['1', '2', '3', '4', '5'];
+const randomGlitch = () => allGlitches[Math.floor(Math.random() * allGlitches.length)];
+
 const day1 = {
-    '13:00': null,
+    '08:00': null,
+
+    '18:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '18:10': { 'video': randomGlitch(), 'type': 'full', },
+    '18:20': null,
+    '18:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '18:40': { 'video': randomGlitch(), 'type': 'full', },
+    '18:50': null,
+
+    '19:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '19:10': { 'video': randomGlitch(), 'type': 'full', },
+    '19:20': null,
+    '19:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '19:40': { 'video': randomGlitch(), 'type': 'full', },
+    '19:50': null,
+
+    '20:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '20:10': { 'video': randomGlitch(), 'type': 'full', },
+    '20:20': null,
+    '20:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '20:40': { 'video': randomGlitch(), 'type': 'full', },
+    '20:50': null,
+
+    '21:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '21:10': { 'video': randomGlitch(), 'type': 'full', },
+    '21:20': null,
+    '21:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '21:40': { 'video': randomGlitch(), 'type': 'full', },
+    '21:50': null,
+
+    '22:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '22:10': { 'video': randomGlitch(), 'type': 'full', },
+    '22:20': null,
+    '22:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '22:40': { 'video': randomGlitch(), 'type': 'full', },
+    '22:50': null,
+
+    '23:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '23:10': { 'video': randomGlitch(), 'type': 'full', },
+    '23:20': null,
+    '23:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '23:40': { 'video': randomGlitch(), 'type': 'full', },
+    '23:50': null,
+
+    '00:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '00:10': { 'video': randomGlitch(), 'type': 'full', },
+    '00:20': null,
+    '00:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '00:40': { 'video': randomGlitch(), 'type': 'full', },
+    '00:50': null,
+
+    '01:05': { 'video': randomGlitch(), 'type': 'partial', },
+    '01:10': { 'video': randomGlitch(), 'type': 'full', },
+    '01:20': null,
+    '01:35': { 'video': randomGlitch(), 'type': 'partial', },
+    '01:40': { 'video': randomGlitch(), 'type': 'full', },
 };
 
 const day2 = {};
