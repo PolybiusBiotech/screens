@@ -29,11 +29,13 @@ jobs:
           python3 ./update-data.py
         env:
           PYTHONUNBUFFERED: 1
-
+      - name: Install Dependencies
+        run: |
+          git status
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
-          add: 'instagram src'
+          add: 'src'
           author_name: 'Barbot'
           author_email: 'marekventur+barbot@gmail.com'
           message: 'Update'
