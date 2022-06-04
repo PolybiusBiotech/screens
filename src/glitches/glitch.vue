@@ -11,6 +11,7 @@
             <source v-if="glitch.video === '8'" src="@/assets/glitches/nullsecvq80001-1201_esrgan.webm" type="video/webm">
         </video>
         <h1 v-if="glitch.text && glitch.type !== 'partial'">{{glitch.text}}</h1>
+        <h2>@aspicyrobot</h2>
     </div>
 </template>
 
@@ -53,6 +54,17 @@
         animation-direction: alternate;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+    }
+
+    .glitch h2 {
+        z-index: 10;
+        line-height: 1vmin;
+        font-size: 0.5em;
+
+        color: var(--background-color);
+        position: fixed;
+        bottom: 1em;
+        right: 1em;
     }
 
     @keyframes blink-keyframes {
