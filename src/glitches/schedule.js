@@ -4,7 +4,7 @@
  *  - full: the screen is taken over by video'
  */
 
-const allGlitches = ['1', '2', '3', '4', '5'];
+const allGlitches = ['1', '2', '3', '4', '5', '6', '7', '8'];
 const randomGlitch = () => allGlitches[Math.floor(Math.random() * allGlitches.length)];
 
 const day1 = {

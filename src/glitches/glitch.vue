@@ -6,6 +6,9 @@
             <source v-if="glitch.video === '3'" src="@/assets/glitches/nullsectest18_0001-1201-4x-RIFE-RIFE3.1-48fps.webm" type="video/webm">
             <source v-if="glitch.video === '4'" src="@/assets/glitches/nullsectest17000_1-1201-4x-RIFE-RIFE3.1-48fps.webm" type="video/webm">
             <source v-if="glitch.video === '5'" src="@/assets/glitches/nullsecvq8_0001-1201_esrgan-4x-RIFE-RIFE3.1-48fps.webm" type="video/webm">
+            <source v-if="glitch.video === '6'" src="@/assets/glitches/nullsectest8_0001-1201-4x-RIFE-RIFE3.1-48fps(1).webm" type="video/webm">
+            <source v-if="glitch.video === '7'" src="@/assets/glitches/nullsectest10_0001-1201-4x-RIFE-RIFE3.1-48fps.webm" type="video/webm">
+            <source v-if="glitch.video === '8'" src="@/assets/glitches/nullsecvq80001-1201_esrgan.webm" type="video/webm">
         </video>
         <h1 v-if="glitch.text && glitch.type !== 'partial'">{{glitch.text}}</h1>
     </div>
@@ -94,7 +97,7 @@
 <script setup lang="ts">
     import { ref, computed } from 'vue';
     import { getGlitch } from './schedule.js';
-    
+
     const glitch = ref(null);
     const updateTime = () => {
         glitch.value = getGlitch();
