@@ -1,45 +1,85 @@
 <template>
 	<layout>
-	    <section id="about">
-	        <Text>
-	            <template #title>Cybar</template>
-	        </Text>
-	    </section>
-	    <section id="bar-table">
-	            <BarTable />
+	    <section class="bar-table">
+	    	<div>
+	    		<h1>{{pageName}}</h1>
+	    	</div>
+	    	<div class="main-area">
+				<table>
+					<tr v-for="item in page" :key="item">
+						<td class="fullname">{{ item.fullname }}</td>
+						<td class="price">{{ item.price }}£</td>
+					</tr>
+				</table>
+			</div>
+			<h2>Page {{pageIndex + 1}} / {{pageNames.length}}</h2>
 	    </section>
     </layout>
 </template>
 
 <style scoped>
+	.bar-table {
+	    height: 100%;
+	    display: flex;
+	    flex-direction: column;
+	    
+	}
+	.main-area {
+		flex-grow: 1;
+	}
 
-    :deep(#content) {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 10fr;
-        grid-template-areas:
-            "About"
-            "BarTable";
-    }
+	table {
+		width: 100%;
+	}
 
-    #bar-table { grid-area: BarTable; }
-    
+	td {
+		font-size: 1.2em;
+		line-height: 1.8em;
+		border-bottom: 0.05em solid var(--border-color);
+	}
 
-    .chart canvas {
-        height: 30vh;
-    }
+	tr:last-child td {
+	    border-bottom: none;
+	}
 
-    #about,
-    #map,
-    #schedule {
-        max-width: 50vw;
-        overflow: hidden;
-    }
+
+	.price {
+		text-align: right;
+	}
+
+	h2 {
+		font-size: 1em;
+		text-align: right;
+	}
+
 
 </style>
 
 <script setup lang="ts">
     import Layout from '@/layouts/noGlitchLayout.vue';
-    import BarTable from '@/widgets/bar-table.vue';
     import Text from '@/widgets/text.vue';
-    import StatusTable from '@/widgets/status-table.vue';
+    import { onMounted, ref } from 'vue';
+    import barData from '../data/bar.json';
+
+    const pages = {};
+    barData.cybar.forEach(e => {
+     pages[e.department.description] = (pages[e.department.description] || []);
+     pages[e.department.description].push(e);
+    })
+	const pageNames = Object.keys(pages);
+
+    console.log(pageNames, pages);
+    const page = ref();
+	const pageName = ref();
+
+    const pageIndex = ref(0);
+    async function paginate() {
+		pageName.value = pageNames[pageIndex.value];
+        page.value = pages[pageNames[pageIndex.value]];
+        pageIndex.value = (pageIndex.value + 1) % pageNames.length;
+    }
+    onMounted(paginate);
+
+	let schedInterval = setInterval(paginate, 20 * 1000); 
+
 </script>
