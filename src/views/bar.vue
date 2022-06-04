@@ -80,6 +80,6 @@
     }
     onMounted(paginate);
 
-	let schedInterval = setInterval(paginate, 20 * 1000); 
+	let schedInterval = setInterval(paginate, 10 * 1000); 
 
 </script>
