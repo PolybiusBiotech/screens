@@ -33,20 +33,10 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
-          add: 'instagram src/instagram-data.json'
-          author_name: 'Pylon Ceramics'
-          author_email: 'marekventur+pylon-ceramics-instagram@gmail.com'
+          add: 'instagram src'
+          author_name: 'Barbot'
+          author_email: 'marekventur+barbot@gmail.com'
           message: 'Update'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages
-          folder: build
