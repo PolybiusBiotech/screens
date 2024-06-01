@@ -15,6 +15,7 @@
 	<router-link to="/plant-room-door">Plant Room - Door</router-link>
 	<router-link to="/bar">Bar</router-link>
 	<router-link to="/taps">Taps</router-link>
+	<router-link to="/bar-closed">Bar closed</router-link>
 </nav>
 </template>
 

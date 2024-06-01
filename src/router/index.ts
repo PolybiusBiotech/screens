@@ -14,6 +14,7 @@ import LifeSupportDoor from '@/views/life-support-door.vue'
 import PlantRoom from '@/views/plant-room.vue'
 import PlantRoomDoor from '@/views/plant-room-door.vue'
 import Taps from '@/views/taps.vue'
+import BarClosed from '@/views/bar-closed.vue'
 
 import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router'
 
@@ -123,6 +124,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/taps',
     name: 'taps',
     component: Taps
+  },
+  {
+    path: '/bar-closed',
+    name: 'bar-closed',
+    component: BarClosed
   },
 
   // Don't forget to add paths to /src/components/mainMenu.vue !
