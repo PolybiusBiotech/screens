@@ -1,0 +1,38 @@
+name: update-and-publish
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Update
+        run: curl https://bar.emf.camp/api/cybar-on-tap.json > src/data/taps.json
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: 'src'
+          author_name: 'Bar Bot'
+          author_email: 'marekventur+barbot@gmail.com'
+          message: 'Update'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: build
