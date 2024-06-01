@@ -13,6 +13,7 @@ import LifeSupport from '@/views/life-support.vue'
 import LifeSupportDoor from '@/views/life-support-door.vue'
 import PlantRoom from '@/views/plant-room.vue'
 import PlantRoomDoor from '@/views/plant-room-door.vue'
+import Taps from '@/views/taps.vue'
 
 import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router'
 
@@ -117,6 +118,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/bar',
     name: 'bar',
     component: Bar
+  },
+  {
+    path: '/taps',
+    name: 'taps',
+    component: Taps
   },
 
   // Don't forget to add paths to /src/components/mainMenu.vue !
