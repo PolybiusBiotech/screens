@@ -9,7 +9,16 @@
 					<tr>
 						<td v-for="tap in taps" :key="tap">
                             <h2>{{ tap.fullname }}</h2>
-                            <img :src="tap.img" />
+                        </td>
+					</tr>
+                    <tr class="img-row">
+						<td v-for="tap in taps" :key="tap" :style="{ backgroundImage: 'url(' + tap.img + ')' }">
+     
+                        </td>
+					</tr>
+                    <tr class="price-row">
+						<td v-for="tap in taps" :key="tap">
+                            <h2>£{{ tap.price }}</h2>
                         </td>
 					</tr>
 				</table>
@@ -19,11 +28,21 @@
 </template>
 
 <style scoped>
+    .main-area {
+        height: 100%;
+        font-size: 1.3em;
+    }
+    .price-row {
+        font-size: 1.5em;
+    }
 	.taps {
 	    width: 100%;
-        margin-top: 3em;
-	    
+        margin-top: 2em;
+        height: calc(100% - 2em);
 	}
+    .taps tr {
+        height: 1%;
+    }
 	.taps td {
 		width: 33%;
         text-align: center;
@@ -34,26 +53,18 @@
 
     .taps h2 {
         text-align: center;
+    
+    }
+    .taps .img-row td { 
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
     }
 
-	table {
-		width: 100%;
-	}
+    .taps tr.img-row { 
+        height: 100%;
+    }
 
-	td {
-		font-size: 1.2em;
-		line-height: 1.8em;
-		border-bottom: 0.05em solid var(--border-color);
-	}
-
-	tr:last-child td {
-	    border-bottom: none;
-	}
-
-
-	.price {
-		text-align: right;
-	}
 
 	h2 {
 		font-size: 1em;
