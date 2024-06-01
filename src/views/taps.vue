@@ -1,23 +1,20 @@
 <template>
 	<layout>
 	    <section class="taps">
-	    	<div>
-	    		<h1>{{pageName}}</h1>
-	    	</div>
 	    	<div class="main-area">
 				<table class="taps">
 					<tr>
-						<td v-for="tap in taps" :key="tap">
+						<td v-for="tap in taps" :key="tap.id">
                             <h2>{{ tap.fullname }}</h2>
                         </td>
 					</tr>
                     <tr class="img-row">
-						<td v-for="tap in taps" :key="tap" :style="{ backgroundImage: 'url(' + tap.img + ')' }">
+						<td v-for="tap in taps" :key="tap.id" :style="{ backgroundImage: 'url(' + tap.logo + ')' }">
      
                         </td>
 					</tr>
                     <tr class="price-row">
-						<td v-for="tap in taps" :key="tap">
+						<td v-for="tap in taps" :key="tap.id">
                             <h2>£{{ tap.price }}</h2>
                         </td>
 					</tr>
@@ -81,7 +78,7 @@
 
     const taps = [...tapsData.kegs, ...tapsData.ciders].map(tap => {
         const e = tap.stocktype;
-        e['img'] = 'https://bar.emf.camp' + e.logo;
+        e.logo = 'https://bar.emf.camp' + e.logo;
         return e;
     });
     console.log(taps);
