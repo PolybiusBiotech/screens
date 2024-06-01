@@ -83,4 +83,8 @@
     });
     console.log(taps);
 
+    setTimeout(() => {
+        location.reload();
+    }, 5 * 60 * 1000)
+
 </script>
