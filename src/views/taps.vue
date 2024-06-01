@@ -66,23 +66,11 @@
 <script setup lang="ts">
     import Layout from '@/layouts/noGlitchLayout.vue';
     import Text from '@/widgets/text.vue';
-    import { onMounted, ref } from 'vue';
     import tapsData from '../data/taps.json';
-    import tapsOrderData from '../data/taps_order.json';
 
-    const tabsById = {};
-    [...tapsData.kegs, ...tapsData.ciders].forEach(e => {
-     tabsById[e.id] = e
-    })
-
-	
-
-    const page = ref();
-	const pageName = ref();
-
-    const taps = tapsOrderData.map(id => {
-        const e = tabsById[id].stocktype;
-        e.img = 'https://bar.emf.camp' + e.logo;
+    const taps = [...tapsData.kegs, ...tapsData.ciders].map(tap => {
+        const e = tap.stocktype;
+        e['img'] = 'https://bar.emf.camp' + e.logo;
         return e;
     });
     console.log(taps);
