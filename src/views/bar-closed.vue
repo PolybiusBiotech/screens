@@ -18,39 +18,10 @@
         margin-top: 3em;
 	    
 	}
-	.taps td {
-		width: 33%;
-        text-align: center;
-	}
-    .taps img {
-		width: 80%;
-	}
+	
 
-    .taps h2 {
-        text-align: center;
-    }
-
-	table {
-		width: 100%;
-	}
-
-	td {
-		font-size: 1.2em;
-		line-height: 1.8em;
-		border-bottom: 0.05em solid var(--border-color);
-	}
-
-	tr:last-child td {
-	    border-bottom: none;
-	}
-
-
-	.price {
-		text-align: right;
-	}
-
-	h2 {
-		font-size: 1em;
+	h1 {
+		font-size: 3.2em;
 		text-align: right;
 	}
 
