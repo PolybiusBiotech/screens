@@ -1,7 +1,7 @@
 <template>
 	<layout>
 	    <section class="bar-closed">
-	    	<div>
+	    	<div class="main-area">
 	    		<h1>Bar closed</h1>
             </div>
             <div>
