@@ -3,8 +3,8 @@
 	    <section class="bar-closed">
 	    	<div>
 	    		<h1>Bar closed</h1>
-	    	</div>
-	    	<div class="main-area">
+            </div>
+            <div>
 				<h1>Please come back later</h1>
 			</div>
 	    </section>
@@ -18,13 +18,10 @@
         margin-top: 3em;
 	    
 	}
-	
 
 	h1 {
 		font-size: 3.2em;
-		text-align: right;
+        text-align: center;
 	}
-
-
 </style>
 
