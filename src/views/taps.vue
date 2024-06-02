@@ -86,6 +86,6 @@
     setTimeout(() => {
         window.location.href = window.location.href
         window.location.reload();
-    }, 1 * 1000)
+    }, 60 * 1000)
 
 </script>
