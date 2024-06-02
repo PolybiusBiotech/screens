@@ -84,7 +84,8 @@
     console.log(taps);
 
     setTimeout(() => {
-        location.reload();
-    }, 60 * 1000)
+        window.location.href = window.location.href
+        window.location.reload();
+    }, 1 * 1000)
 
 </script>
