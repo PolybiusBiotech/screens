@@ -123,7 +123,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/taps',
     name: 'taps',
-    component: Taps
+    component: Taps,
+    meta: {
+      refresh : '1',
+    }
   },
   {
     path: '/bar-closed',
