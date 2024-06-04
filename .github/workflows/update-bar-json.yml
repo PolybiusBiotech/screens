@@ -1,8 +1,8 @@
 name: update-bar-json
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'
+  #schedule:
+  #  - cron: '*/5 * * * *'
 jobs:
   fetch:
     runs-on: ubuntu-latest
