@@ -107,10 +107,10 @@
 </style>
 
 <script setup lang="ts">
-    import { ref, computed } from 'vue';
-    import { getGlitch } from './schedule.js';
+    import { ref } from 'vue';
+    import { getGlitch, type GlitchEntry } from './schedule';
 
-    const glitch = ref(null);
+    const glitch = ref<GlitchEntry>(null);
     const updateTime = () => {
         glitch.value = getGlitch();
         const now = new Date();

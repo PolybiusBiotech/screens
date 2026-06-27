@@ -65,7 +65,6 @@
 <script setup lang="ts">
 	import { reactive } from 'vue';
 	import { Vue3Marquee } from "vue3-marquee";
-	import 'vue3-marquee/dist/style.css';
 
 
 

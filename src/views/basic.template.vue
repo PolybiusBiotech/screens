@@ -23,7 +23,7 @@
 
 </style>
 
-<script setup>
+<script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
 //    import Text from '@/widgets/text.vue';
 </script>

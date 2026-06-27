@@ -65,8 +65,6 @@
 
 <script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
-    import NewsMarquee from '@/widgets/news-marquee.vue';
-    import Text from '@/widgets/text.vue';
     import Lock from '@/widgets/lock.vue';
     import Keypad from '@/widgets/keypad.vue';
 </script>

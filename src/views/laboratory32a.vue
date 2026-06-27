@@ -59,8 +59,8 @@
 				:interval="-1" 
 				graphType="line" 
 				:yMax=90 
-				animation="wobbly-light" 
-				displayLegend="true" 
+				animation="wobbly-light"
+				:displayLegend="true"
 				displayLegendPosition="left" />
         </section>
 
@@ -103,7 +103,7 @@
 
 </style>
 
-<script setup>
+<script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
     import Chart from '@/widgets/chart.vue';
     import NewsMarquee from '@/widgets/news-marquee.vue';

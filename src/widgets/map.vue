@@ -75,12 +75,8 @@
 </style>
 
 
-<script>
-
-</script>
-
-<script setup>
-	import {onMounted} from 'vue';
+<script setup lang="ts">
+	import { onMounted } from 'vue';
 
 	const props = defineProps({
 		current: {
@@ -91,6 +87,11 @@
 		},
 	})
 
+	defineSlots<{
+		default?: () => any;
+		warning?: () => any;
+	}>();
+
     const warningAreas = (props.warning || "").split(",").filter(Boolean);
     const hasWarnings = warningAreas.length > 0;
 
@@ -98,7 +99,9 @@
 
 	onMounted(()=>{
         const parentElement = document.getElementById(elementId);
-        const svgElement = parentElement.querySelector('svg');
+        if (!parentElement) return;
+        const svgElement = parentElement.querySelector<SVGSVGElement>('svg');
+        if (!svgElement) return;
 
         // Make sure the map never overflows the viewport
         const resize = () => {
@@ -108,18 +111,18 @@
         resize();
         window.addEventListener('resize', resize);
 
-        const areas = {};
-        svgElement.querySelectorAll(".area").forEach((e, i) => {
-            const name = Array.from(e.classList).find(e => e.indexOf('area-') === 0).slice(5);
-            areas[name] = e;
+        const areas: Record<string, Element> = {};
+        svgElement.querySelectorAll(".area").forEach((e) => {
+            const name = Array.from(e.classList).find(c => c.indexOf('area-') === 0)?.slice(5);
+            if (name) areas[name] = e;
         });
-        props.current && areas[props.current].classList.add('area-current');
+        if (props.current && areas[props.current]) areas[props.current].classList.add('area-current');
 
-        warningAreas.forEach((area, i) => {
+        warningAreas.forEach((area) => {
             if (areas[area]) {
                 areas[area].classList.add('area-warning');
             } else {
-                console.warn(`area ${area} not found in list of areas ${areas.join(',')}`);
+                console.warn(`area ${area} not found in list of areas ${Object.keys(areas).join(',')}`);
             }
         })
 	});

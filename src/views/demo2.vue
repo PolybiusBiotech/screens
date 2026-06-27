@@ -12,10 +12,9 @@
 			></Countdown>
 		</section>
 		<section id="two">
-			<Chart graphType="gauge" 
-				:dataRetriever="generateGaugeData" 
+			<Chart graphType="doughnut"
+				:dataRetriever="generateChartData"
 				:interval=50
-				:optionsDelta="chartOptions"
 			></Chart>
 			<Text>
 				<template #title>Demo text</template>
@@ -72,45 +71,22 @@
 	const soon = new Date(Date.now() + 10*1000);
 
 
-	let gaugeValue = 1.5;
-	let gaugeLims = [0, 5];
-	const generateGaugeData = () => { 
-		const delta = Math.random() * (gaugeLims[1]-gaugeLims[0])/500;
+	const chartLims = [0, 5];
+	let chartValue = 1.5;
+	const generateChartData = () => {
+		const delta = Math.random() * (chartLims[1] - chartLims[0]) / 500;
 		const sign = (Math.random() < 0.5) ? -1 : 1;
-		gaugeValue += sign * delta;
-		if (gaugeValue < gaugeLims[0]) gaugeValue = gaugeLims[0];
-		if (gaugeValue > gaugeLims[1]) gaugeValue = gaugeLims[1];
+		chartValue += sign * delta;
+		if (chartValue < chartLims[0]) chartValue = chartLims[0];
+		if (chartValue > chartLims[1]) chartValue = chartLims[1];
 		return {
+			labels: ['Danger', 'Safe'],
 			datasets: [{
-				value: gaugeValue,
-				minValue: 0,
-				data: [1, 2, 3, 4],
-				backgroundColor: ['green', 'yellow', 'orange', 'red'],
+				data: [chartValue, chartLims[1] - chartValue],
+				backgroundColor: ['red', 'green'],
 			}]
 		}
 	};
-	
-	const chartOptions = {
-		needle: {
-			radiusPercentage: 2,
-			widthPercentage: 3.2,
-			lengthPercentage: 80,
-			color: 'rgba(0, 0, 0, 1)'
-		},
-		valueLabel: {
-			display: true,
-			formatter: () => 'Danger',
-			color: 'rgba(255, 255, 255, 1)',
-			backgroundColor: 'rgba(0, 0, 0, 1)',
-			borderRadius: 5,
-			padding: {
-				top: 10,
-				bottom: 10
-			}
-		}
-		
-	};
-	
 
 
 </script>

@@ -59,8 +59,7 @@
 </style>
 
 <script setup lang="ts">
-    import { stat } from 'fs';
-import { ref } from 'vue';
+    import { ref } from 'vue';
 
     const props = defineProps({
         errorMessage: {

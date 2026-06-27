@@ -103,16 +103,17 @@
 
 	(function logoAnimateIIFE() {
 		let is_animating = false;
-		let logoInterval = setInterval(()=> {
+		setInterval(()=> {
 			if (is_animating) return;
-			is_animating = true;
 			const el = document.querySelector<HTMLElement>('#notch .logo');
+			if (!el) return;
+			is_animating = true;
 			el.style.setProperty('--animate-duration', '2s');
 			el.style.setProperty('--animate-repeat', '1');
 
 			const classes = ['animate__animated', 'animate__flip', 'animate__repeat-1'];
 			el.classList.add(...classes);
-			const stopAnim = event => 	{
+			const stopAnim = (event?: Event) => 	{
 				if (!is_animating) return;
 				if (event)
 					event.stopPropagation();

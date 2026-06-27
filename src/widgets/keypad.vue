@@ -3,7 +3,7 @@
         <div class="input">{{inputFilled}}</div>
         <div class="keys">
             <!--button v-for="number in [1, 2, 3, 4, 5, 6, 7, 8, 9, '#', 0, '@']" @click="press(number)"-->
-            <button v-for="number in numberDicts[numbersType]" @click="press(number)">
+            <button v-for="number in numberDicts[numbersType]" :key="number" @click="press(number)">
                 {{ number }}
             </button>
         </div>
@@ -62,7 +62,7 @@
 <script setup lang="ts">
     import { ref, computed } from 'vue';
 
-    const props = defineProps({
+    defineProps({
         numbersType: {
             type: String,
             default: 'arabic'
@@ -74,7 +74,7 @@
         (input.value + "••••••").slice(0,4)
     );
     const error = ref(false);
-    const press = (number) => {
+    const press = (number: string | number) => {
         if (error.value) {
             return;
         }
@@ -92,7 +92,7 @@
         }
     }
 
-    const numberDicts = { // First member will be ignored!
+    const numberDicts: Record<string, (string | number)[]> = { // First member will be ignored!
         arabic: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, '#', 0, '@'],
         greek: ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', '∰', 'κ', '∃'],
     }

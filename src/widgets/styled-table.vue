@@ -64,11 +64,10 @@
 		}
 	});
 	const slots = useSlots();
-	let items = ref([]);
-	console.log('a',props);
+	const rows = ref<Record<string, any>[]>([]);
 	if (slots && slots.default)
-		items.value = [...items.value, ...slots.default().map(s => s.props)];
+		rows.value = [...rows.value, ...slots.default().map(s => s.props as Record<string, any>)];
 	if (props.items)
-		items.value = [...items.value, ...JSON.parse(props.items)]; // Either-or. Why? No internet no time to figure out. TODO
+		rows.value = [...rows.value, ...JSON.parse(props.items)]; // Either-or. Why? No internet no time to figure out. TODO
 		
 </script>

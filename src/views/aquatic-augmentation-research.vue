@@ -40,7 +40,7 @@
 		</section>
 
 		<section id="pie">
-            <chart :dataRetriever="generatePieData" :interval="500" graphType="pie" displayLegend="true" displayLegendPosition="left" />
+            <chart :dataRetriever="generatePieData" :interval="500" graphType="pie" :displayLegend="true" displayLegendPosition="left" />
 
 		</section>
 
@@ -73,8 +73,7 @@
 
 </style>
 
-<script setup>
-	import { ref } from 'vue';
+<script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
 
 	import Chart from '../widgets/chart.vue';

@@ -69,7 +69,7 @@
 		'https://www.emfcamp.org/schedule/2022.json';
 
 	
-    let events = ref();
+    const events = ref();
     // Read from local cache
     if (localStorage && localStorage.schedule)
         events.value = localStorage.schedule;
@@ -97,6 +97,6 @@
     }
     onMounted(updateSchedule);
 
-	let schedInterval = setInterval(updateSchedule, 60 * 1000); // Check every minute and update. TODO TEST
+	setInterval(updateSchedule, 60 * 1000); // Check every minute and update. TODO TEST
 
 </script>

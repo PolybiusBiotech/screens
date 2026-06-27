@@ -78,7 +78,6 @@
 <script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
     import Lock from '@/widgets/lock.vue';
-    import Keypad from '@/widgets/keypad.vue';
     import Map from '@/widgets/map.vue';
 	import ProfileMap from '@/maps/profile.svg'
 </script>

@@ -16,7 +16,7 @@ import PlantRoomDoor from '@/views/plant-room-door.vue'
 import Taps from '@/views/taps.vue'
 import BarClosed from '@/views/bar-closed.vue'
 
-import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {

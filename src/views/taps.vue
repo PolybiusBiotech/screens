@@ -73,15 +73,23 @@
 
 <script setup lang="ts">
     import Layout from '@/layouts/noGlitchLayout.vue';
-    import Text from '@/widgets/text.vue';
     import tapsData from '../data/taps.json';
 
-    const taps = [...tapsData.kegs, ...tapsData.ciders].map(tap => {
+    interface StockType {
+        id: number;
+        fullname: string;
+        logo: string;
+        price: string | number;
+    }
+    interface Tap {
+        stocktype: StockType;
+    }
+
+    const taps = [...(tapsData.kegs as Tap[]), ...(tapsData.ciders as Tap[])].map(tap => {
         const e = tap.stocktype;
         e.logo = 'https://bar.emf.camp' + e.logo;
         return e;
     });
-    console.log(taps);
 
     setTimeout(() => {
         window.location.href = window.location.href

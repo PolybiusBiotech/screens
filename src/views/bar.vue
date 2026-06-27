@@ -57,18 +57,16 @@
 
 <script setup lang="ts">
     import Layout from '@/layouts/noGlitchLayout.vue';
-    import Text from '@/widgets/text.vue';
     import { onMounted, ref } from 'vue';
     import barData from '../data/bar.json';
 
-    const pages = {};
+    const pages: Record<string, typeof barData.cybar> = {};
     barData.cybar.forEach(e => {
      pages[e.department.description] = (pages[e.department.description] || []);
      pages[e.department.description].push(e);
     })
 	const pageNames = Object.keys(pages);
 
-    console.log(pageNames, pages);
     const page = ref();
 	const pageName = ref();
 
@@ -80,6 +78,6 @@
     }
     onMounted(paginate);
 
-	let schedInterval = setInterval(paginate, 10 * 1000); 
+	setInterval(paginate, 10 * 1000);
 
 </script>

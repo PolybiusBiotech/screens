@@ -3,7 +3,7 @@
 		<h1><slot name="title" /></h1>
 		<table>
             <tbody>
-                <tr v-for="({text, status}, index) in items">
+                <tr v-for="({ text, status }, index) in rows" :key="index">
                     <td>{{text}}</td>
                     <td><span :class="`status status-${statusClasses[index]}`">{{status}}</span></td>
                 </tr>
@@ -57,22 +57,29 @@
 </style>
 
 <script setup lang="ts">
-    import { computed, ref, useSlots } from 'vue';
+    import { computed, ref, useSlots, type PropType } from 'vue';
+
+    interface StatusItem {
+        text?: string;
+        status: string;
+        statusClass?: string;
+    }
 
     const props = defineProps({
         items: {
-            default: []
+            type: Array as PropType<StatusItem[]>,
+            default: () => []
         }
     });
     const slots = useSlots();
-    let items = ref([]);
+    const rows = ref<StatusItem[]>([]);
     if (slots && slots.default)
-        items.value = [...items.value, ...slots.default().map(s => s.props)];
+        rows.value = [...rows.value, ...slots.default().map(s => s.props as StatusItem)];
     if (props.items)
-        items.value = [...items.value, ...props.items]; // Either-or. Why? No internet no time to figure out. TODO
+        rows.value = [...rows.value, ...props.items]; // Either-or. Why? No internet no time to figure out. TODO
     
     const statusClasses = computed( () => { // fugly
-        return items.value.map(item => {
+        return rows.value.map(item => {
             const raw = item.status.toLowerCase();
             if (item.statusClass) 
                 return item.statusClass.toLowerCase();

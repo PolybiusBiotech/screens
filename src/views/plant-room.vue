@@ -60,7 +60,7 @@
 </style>
 
 
-<script setup>
+<script setup lang="ts">
     import Layout from '@/layouts/primaryLayout.vue';
 
 	import Chart from "@/widgets/chart.vue";

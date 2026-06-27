@@ -12,7 +12,7 @@
 </style>
 
 <script lang="ts">
-	const animations = { // Fun animations we can use
+	const animations: Record<string, any> = { // Fun animations we can use
 		"none": null,
 		"wobbly": {
 			tension: {
@@ -34,15 +34,10 @@
         },
     }
 
-let interval:any;
-
-
 </script>
 <script setup lang="ts">
-    import { onMounted, Prop, PropType } from 'vue';
+    import { onMounted, PropType } from 'vue';
     import { Chart, registerables } from 'chart.js';
-
-	import chartjsGauge from 'chartjs-gauge';
 
 	Chart.register(...registerables);
 
@@ -57,7 +52,7 @@ let interval:any;
         dataRetriever: {
 			// If static data, just return the JSON. If dynamic, retrieve it and set an interval.
 			// Function should return whatever chart.js has under "data"
-            type: Function as PropType <Function>,
+            type: Function as PropType<() => any>,
             default: null
         },
 		displayLegend: {
@@ -79,8 +74,8 @@ let interval:any;
 		optionsDelta: {
 			// IMPORTANT
 			// does a SHALLOW merge. If you overwrite a default option you'll lose everything under it you didn't specifically mention.
-			type: Object as PropType <Object>,
-			default: {}
+			type: Object as PropType <object>,
+			default: () => ({})
 		},
 		yMax: {
 			type: Number as PropType <number>,
@@ -115,14 +110,12 @@ let interval:any;
 				y: {
 					display: false,
 					min: 0,
+					...(props.yMax >= 0 ? { max: props.yMax } : {})
 				}
 			}
 		};
-		if (props.yMax >= 0) {
-			defaultOptions.scales.y['max'] = props.yMax;
-		}
 
-		const options = Object.assign(props.optionsDelta, defaultOptions);
+		const options = Object.assign({}, props.optionsDelta, defaultOptions);
         const ctx:any = document.getElementById(uid);
 
 			//chartjs(ctx, options);
@@ -132,26 +125,11 @@ let interval:any;
 			options
 		}
 
-		let chart;
-		switch (props.graphType) {
-			case 'gauge':
-				chart = chartjsGauge(ctx, config);
-				break;
-			default:
-				chart = new Chart(ctx, config);
-				break;
-		}
+		const chart = new Chart(ctx, config);
 
 		if (props.interval > 0) {
-			interval = setInterval(() => {
-				switch (props.graphType) {
-					case 'gauge':
-						chart.data.datasets[0].value = props.dataRetriever.call(null).datasets[0].value;
-						break;
-					default:
-						chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
-						break;
-				}
+			setInterval(() => {
+				chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
 				requestAnimationFrame(()=>chart.update());
 			}, props.interval);
 		}
