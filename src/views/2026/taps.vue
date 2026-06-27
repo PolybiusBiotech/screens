@@ -26,8 +26,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 1.5vw;
-  height: 100%;
-  width: 100%;
+  min-height: 0;
 }
 
 .tap-card {
@@ -100,13 +99,15 @@
 
 .beer-name {
   color: #e8d0ff;
+  display: -webkit-box;
   font-size: 0.9em;
   grid-column: 1;
   grid-row: 1;
   letter-spacing: 0.03em;
+  line-height: 1.2;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .abv {
