@@ -1,37 +1,35 @@
 <template>
-<layout>
+  <layout>
     <section id="map">
-        <Map warning="tunnel,observation">
-            <ProfileMap />
-            <template #warning>Contamination Warning</template>
-        </Map>
+      <Map warning="tunnel,observation">
+        <ProfileMap />
+        <template #warning>Contamination Warning</template>
+      </Map>
     </section>
-    </layout>
+  </layout>
 </template>
 
 <style scoped>
+:deep(#content) {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'Map';
+}
 
-    :deep(#content) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas:
-            "Map";
-    }
+#map {
+  grid-area: Map;
+}
 
-    #map { grid-area: Map; }
+#map {
+}
 
-    #map {
-
-    }
-
-    #map{
-        overflow: hidden;
-    }
-
+#map {
+  overflow: hidden;
+}
 </style>
 
 <script setup lang="ts">
-    import Layout from '@/layouts/primaryLayout.vue';
-    import Map from '@/widgets/map.vue';
-    import ProfileMap from '@/maps/profile.svg'
+import Layout from '@/layouts/primaryLayout.vue';
+import Map from '@/widgets/map.vue';
+import ProfileMap from '@/maps/profile.svg';
 </script>

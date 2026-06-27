@@ -1,70 +1,66 @@
 <template>
-<layout largeNotch>
-
+  <layout largeNotch>
     <section id="about">
-        <h1 class="main-title">Life support</h1>
+      <h1 class="main-title">Life support</h1>
     </section>
     <section id="doors">
-        <Lock initial="on" on-text="open" off-text="closed">
-            <template #title>Hallway</template>
-        </Lock>
-        <Lock initial="off" on-text="open" off-text="closed" override="off">
-            <template #title>Laboratory</template>
-        </Lock>
+      <Lock initial="on" on-text="open" off-text="closed">
+        <template #title>Hallway</template>
+      </Lock>
+      <Lock initial="off" on-text="open" off-text="closed" override="off">
+        <template #title>Laboratory</template>
+      </Lock>
     </section>
     <section id="entry">
-        <Keypad />
+      <Keypad />
     </section>
-
-    </layout>
+  </layout>
 </template>
 
 <style scoped>
+:deep(#content) {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-areas:
+    'About'
+    'Doors'
+    'Entry';
+}
 
-    :deep(#content) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 2fr;
-        grid-template-areas:
-            "About"
-            "Doors"
-            "Entry";
-    }
+h1.main-title {
+  display: block;
+  font-size: 3em;
+  text-align: center;
+}
 
-    h1.main-title {
-        display: block;
-        font-size: 3em;
-        text-align: center;
-    }
+#about {
+  grid-area: About;
+  padding-top: 2em;
+}
+#doors {
+  grid-area: Doors;
+  display: flex;
+  width: 100%;
+  gap: 2em;
+}
+#doors > * {
+  flex: 1;
+}
 
-    #about {
-        grid-area: About;
-        padding-top: 2em;
-    }
-    #doors {
-        grid-area: Doors;
-        display: flex;
-        width: 100%;
-        gap: 2em;
-    }
-    #doors>* {
-        flex: 1;
-    }
+#entry {
+  grid-area: Entry;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    #entry {
-        grid-area: Entry;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #news { grid-area: News; }
-
-
-
+#news {
+  grid-area: News;
+}
 </style>
 
 <script setup lang="ts">
-    import Layout from '@/layouts/primaryLayout.vue';
-    import Lock from '@/widgets/lock.vue';
-    import Keypad from '@/widgets/keypad.vue';
+import Layout from '@/layouts/primaryLayout.vue';
+import Lock from '@/widgets/lock.vue';
+import Keypad from '@/widgets/keypad.vue';
 </script>
