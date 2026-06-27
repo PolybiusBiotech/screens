@@ -4,26 +4,28 @@
       <StyledTable>
         <template #title>Occupants</template>
         <table>
-          <tr>
-            <td>Tank 1</td>
-            <td>Cephalopoda Generic</td>
-          </tr>
-          <tr>
-            <td>Tank 2</td>
-            <td>Paralarva Raising</td>
-          </tr>
-          <tr>
-            <td>Tank 3</td>
-            <td>Cyanea intellect augmentation</td>
-          </tr>
-          <tr>
-            <td>Tank 4</td>
-            <td>Vulgaris testing</td>
-          </tr>
-          <tr class="del">
-            <td>Tank 5</td>
-            <td>CLASSIFIED</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Tank 1</td>
+              <td>Cephalopoda Generic</td>
+            </tr>
+            <tr>
+              <td>Tank 2</td>
+              <td>Paralarva Raising</td>
+            </tr>
+            <tr>
+              <td>Tank 3</td>
+              <td>Cyanea intellect augmentation</td>
+            </tr>
+            <tr>
+              <td>Tank 4</td>
+              <td>Vulgaris testing</td>
+            </tr>
+            <tr class="del">
+              <td>Tank 5</td>
+              <td>CLASSIFIED</td>
+            </tr>
+          </tbody>
         </table>
       </StyledTable>
     </section>

@@ -6,10 +6,12 @@
       </div>
       <div class="main-area">
         <table>
-          <tr v-for="item in page" :key="item">
-            <td class="fullname">{{ item.fullname }}</td>
-            <td class="price">{{ item.price }}£</td>
-          </tr>
+          <tbody>
+            <tr v-for="item in page" :key="item">
+              <td class="fullname">{{ item.fullname }}</td>
+              <td class="price">{{ item.price }}£</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <h2>Page {{ pageIndex + 1 }} / {{ pageNames.length }}</h2>

@@ -3,23 +3,25 @@
     <section class="taps">
       <div class="main-area">
         <table class="taps">
-          <tr>
-            <td v-for="tap in taps" :key="tap.id">
-              <h2>{{ tap.fullname }}</h2>
-            </td>
-          </tr>
-          <tr class="img-row">
-            <td
-              v-for="tap in taps"
-              :key="tap.id"
-              :style="{ backgroundImage: 'url(' + tap.logo + ')' }"
-            ></td>
-          </tr>
-          <tr class="price-row">
-            <td v-for="tap in taps" :key="tap.id">
-              <h2>£{{ tap.price }}</h2>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td v-for="tap in taps" :key="tap.id">
+                <h2>{{ tap.fullname }}</h2>
+              </td>
+            </tr>
+            <tr class="img-row">
+              <td
+                v-for="tap in taps"
+                :key="tap.id"
+                :style="{ backgroundImage: 'url(' + tap.logo + ')' }"
+              ></td>
+            </tr>
+            <tr class="price-row">
+              <td v-for="tap in taps" :key="tap.id">
+                <h2>£{{ tap.price }}</h2>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </section>
