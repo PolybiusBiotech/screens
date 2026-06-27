@@ -15,7 +15,8 @@ import LifeSupport from '@/views/2022/life-support.vue';
 import LifeSupportDoor from '@/views/2022/life-support-door.vue';
 import PlantRoom from '@/views/2022/plant-room.vue';
 import PlantRoomDoor from '@/views/2022/plant-room-door.vue';
-import Taps from '@/views/2022/taps.vue';
+import Taps from '@/views/2026/taps.vue';
+import Taps2022 from '@/views/2022/taps.vue';
 import BarClosed from '@/views/2022/bar-closed.vue';
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
@@ -130,6 +131,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/taps',
     name: 'taps',
     component: Taps,
+    meta: {
+      refresh: '1',
+    },
+  },
+  {
+    path: '/2022/taps',
+    name: 'taps-2022',
+    component: Taps2022,
     meta: {
       refresh: '1',
     },

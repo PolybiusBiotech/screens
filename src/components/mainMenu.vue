@@ -4,13 +4,14 @@
       <h2>2026</h2>
       <router-link to="/bar">Bar</router-link>
       <router-link to="/bar-closed">Bar Closed</router-link>
+      <router-link to="/taps">Taps</router-link>
     </section>
 
     <section class="year-section">
       <h2>2022</h2>
       <template v-if="show2022">
         <router-link to="/2022/bar">Bar (2022)</router-link>
-        <router-link to="/taps">Taps</router-link>
+        <router-link to="/2022/taps">Taps</router-link>
         <router-link to="/bar-closed">Bar closed</router-link>
         <router-link to="/demo1">Demo1</router-link>
         <router-link to="/demo2">Demo2</router-link>
