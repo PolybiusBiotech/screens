@@ -73,7 +73,7 @@ h2 {
 
 <script setup lang="ts">
 import Layout from '@/layouts/noGlitchLayout.vue';
-import tapsData from '../data/taps.json';
+import tapsData from '@/data/taps.json';
 
 interface StockType {
   id: number;

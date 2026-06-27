@@ -56,7 +56,7 @@ h2 {
 <script setup lang="ts">
 import Layout from '@/layouts/noGlitchLayout.vue';
 import { onMounted, ref } from 'vue';
-import barData from '../data/bar.json';
+import barData from '@/data/bar.json';
 
 const pages: Record<string, typeof barData.cybar> = {};
 barData.cybar.forEach((e) => {

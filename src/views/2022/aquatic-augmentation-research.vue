@@ -88,9 +88,9 @@
 <script setup lang="ts">
 import Layout from '@/layouts/primaryLayout.vue';
 
-import Chart from '../widgets/chart.vue';
-import NewsMarquee from '../widgets/news-marquee.vue';
-import StatusTable from '../widgets/status-table.vue';
+import Chart from '@/widgets/chart.vue';
+import NewsMarquee from '@/widgets/news-marquee.vue';
+import StatusTable from '@/widgets/status-table.vue';
 import StyledTable from '@/widgets/styled-table.vue';
 
 function generatePieData() {
