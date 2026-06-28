@@ -1,270 +1,820 @@
 {
   "cybar": [
     {
-      "id": 62,
-      "department": { "id": 60, "description": "Cans >0.5%", "notes": null },
-      "manufacturer": "Brick",
-      "name": "Peckham Rye 330ml",
-      "abv": "4.7",
-      "fullname": "Brick Peckham Rye 330ml (4.7% ABV)",
-      "price": "3.20",
-      "base_units_bought": "72.0",
-      "base_units_remaining": "1.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/111",
+      "id": 111,
+      "department": {
+        "id": 50,
+        "description": "Snacks"
+      },
+      "manufacturer": "Kettle",
+      "name": "Lightly Salted",
+      "abv": null,
+      "fullname": "Kettle Lightly Salted",
+      "price": "1.20",
+      "logo": "/media/emf/product-logos/faf4b3de4a9669c095e87165181a9876f97fdc5f9ef01298ee700ecadc2ed110.png",
+      "base_units_remaining": "180.0",
+      "sale_unit_name": "packet"
     },
     {
-      "id": 68,
-      "department": { "id": 60, "description": "Cans >0.5%", "notes": null },
-      "manufacturer": "Cloudwater",
-      "name": "And Relax 440ml",
-      "abv": "3.2",
-      "fullname": "Cloudwater And Relax 440ml (3.2% ABV)",
-      "price": "4.20",
-      "base_units_bought": "72.0",
-      "base_units_remaining": "3.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/112",
+      "id": 112,
+      "department": {
+        "id": 50,
+        "description": "Snacks"
+      },
+      "manufacturer": "Kettle",
+      "name": "Mature Cheddar and Red Onion",
+      "abv": null,
+      "fullname": "Kettle Mature Cheddar and Red Onion",
+      "price": "1.20",
+      "logo": "/media/emf/product-logos/18458feab798d69995262308ef902fc393b9f43dd34099849ce9f5df55725300.png",
+      "base_units_remaining": "180.0",
+      "sale_unit_name": "packet"
     },
     {
-      "id": 58,
-      "department": { "id": 60, "description": "Cans >0.5%", "notes": null },
-      "manufacturer": "Cloudwater",
-      "name": "Somewhere Within 440ml",
-      "abv": "6.0",
-      "fullname": "Cloudwater Somewhere Within 440ml (6.0% ABV)",
-      "price": "6.70",
-      "base_units_bought": "48.0",
-      "base_units_remaining": "2.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/113",
+      "id": 113,
+      "department": {
+        "id": 50,
+        "description": "Snacks"
+      },
+      "manufacturer": "Kettle",
+      "name": "Sea Salt and Balsamic Vinegar",
+      "abv": null,
+      "fullname": "Kettle Sea Salt and Balsamic Vinegar",
+      "price": "1.20",
+      "logo": "/media/emf/product-logos/82291951f400e613ab1df6ced62e346b46bc41e6cb974d50e3880ae65ecd97cf.png",
+      "base_units_remaining": "180.0",
+      "sale_unit_name": "packet"
     },
     {
+      "key": "stocktype/115",
+      "id": 115,
+      "department": {
+        "id": 50,
+        "description": "Snacks"
+      },
+      "manufacturer": "Smiths",
+      "name": "Bacon Fries",
+      "abv": null,
+      "fullname": "Smiths Bacon Fries",
+      "price": "0.90",
+      "logo": "/media/emf/product-logos/95c17446502b4389eaabb7604fa627f2c508d9a7ac6010071666125c6dbf76c5.png",
+      "base_units_remaining": "240.0",
+      "sale_unit_name": "packet"
+    },
+    {
+      "key": "stocktype/114",
+      "id": 114,
+      "department": {
+        "id": 50,
+        "description": "Snacks"
+      },
+      "manufacturer": "Smiths",
+      "name": "Scampi Fries",
+      "abv": null,
+      "fullname": "Smiths Scampi Fries",
+      "price": "0.90",
+      "logo": "/media/emf/product-logos/ed70de31f533664b8773fc1bafbbbd0bb0b414e4e0d96321416ba5fa813bbb33.png",
+      "base_units_remaining": "240.0",
+      "sale_unit_name": "packet"
+    },
+    {
+      "key": "stocktype/66",
       "id": 66,
-      "department": { "id": 60, "description": "Cans >0.5%", "notes": null },
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Abyss",
+      "name": "Deuce 440ml",
+      "abv": "8.4",
+      "fullname": "Abyss Deuce 440ml (8.4% ABV)",
+      "price": "7.50",
+      "logo": "/media/emf/product-logos/f00218053add4397fa7696cb1bb15c16131cbe884fe58b5bd6e58140927de8fc.png",
+      "base_units_remaining": "12.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/85",
+      "id": 85,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Arbor",
+      "name": "Pico Mountain 568ml",
+      "abv": "3.4",
+      "fullname": "Arbor Pico Mountain 568ml (3.4% ABV)",
+      "price": "5.50",
+      "logo": "/media/emf/product-logos/044ede823b1c7aff23fadb842cabe296e92f26a1fb9cbbf12457a5d126e0bf9b.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/77",
+      "id": 77,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Ascension",
+      "name": "Pilot cider 330ml",
+      "abv": "4.8",
+      "fullname": "Ascension Pilot cider 330ml (4.8% ABV)",
+      "price": "4.50",
+      "logo": "/media/emf/product-logos/ef28d1bb75bdf21c4c6f93afaeb77ae7215d393e08c8ff554a97a77ae4fbade9.png",
+      "base_units_remaining": "72.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/67",
+      "id": 67,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Brass Castle",
+      "name": "Fat Rascal (GF) 440ml",
+      "abv": "4.2",
+      "fullname": "Brass Castle Fat Rascal (GF) 440ml (4.2% ABV)",
+      "price": "4.50",
+      "logo": "/media/emf/product-logos/8716a56e6b0e4af7c19cbde05cd2ee447c405a6096a30ebf09d5b3a57ab9b9ad.png",
+      "base_units_remaining": "12.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/80",
+      "id": 80,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Burnt Mill",
+      "name": "Fog Catcher 440ml",
+      "abv": "4.6",
+      "fullname": "Burnt Mill Fog Catcher 440ml (4.6% ABV)",
+      "price": "5.50",
+      "logo": "/media/emf/product-logos/f1c3adda7e082689d6e3ecf456303ed7a437fcda759e5e8d8b66e03ff2428921.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/68",
+      "id": 68,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Cloudwater",
+      "name": "Forever Chubbles 440ml",
+      "abv": "8.0",
+      "fullname": "Cloudwater Forever Chubbles 440ml (8.0% ABV)",
+      "price": "9.00",
+      "logo": "/media/emf/product-logos/e63e0e7e69375a5faeff2e46682304cfbbc7707d53593f8d7acef12fee87c9d8.png",
+      "base_units_remaining": "12.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/91",
+      "id": 91,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Cloudwater",
+      "name": "Ghostcode 440ml",
+      "abv": "6.0",
+      "fullname": "Cloudwater Ghostcode 440ml (6.0% ABV)",
+      "price": "6.00",
+      "logo": "/media/emf/product-logos/14d6dfa30bdee35a8b1bb61626a40db66274584d4f76803dafb62a1a412ef6ae.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/81",
+      "id": 81,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Duration",
+      "name": "Another Day Done 440ml",
+      "abv": "4.4",
+      "fullname": "Duration Another Day Done 440ml (4.4% ABV)",
+      "price": "5.50",
+      "logo": "/media/emf/product-logos/912f4bd08ebf7ef9b00d986a9a80e9b29623ff683b9f9e514732fc89f46020b2.png",
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/82",
+      "id": 82,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
       "manufacturer": "Duration",
       "name": "Bet The Farm 440ml",
       "abv": "4.5",
       "fullname": "Duration Bet The Farm 440ml (4.5% ABV)",
-      "price": "4.60",
-      "base_units_bought": "48.0",
-      "base_units_remaining": "2.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "price": "5.50",
+      "logo": "/media/emf/product-logos/b558155e638da00e45641867e3549ba511ade246fb9189318f04562ffd6b9418.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 70,
-      "department": { "id": 64, "description": "Cans \u22640.5%", "notes": null },
-      "manufacturer": "Big Drop",
-      "name": "Pine Trail 330ml (GF)",
-      "abv": "0.5",
-      "fullname": "Big Drop Pine Trail 330ml (GF) (0.5% ABV)",
-      "price": "3.80",
-      "base_units_bought": "72.0",
-      "base_units_remaining": "12.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/83",
+      "id": 83,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Duration",
+      "name": "End Up 440ml",
+      "abv": "3.4",
+      "fullname": "Duration End Up 440ml (3.4% ABV)",
+      "price": "5.00",
+      "logo": null,
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "can"
     },
     {
+      "key": "stocktype/86",
+      "id": 86,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Duration",
+      "name": "Good Times 440ml",
+      "abv": "4.2",
+      "fullname": "Duration Good Times 440ml (4.2% ABV)",
+      "price": "4.00",
+      "logo": "/media/emf/product-logos/948e7367dcc5ceb2abc8e2fc149a45baf3589130f3c3841d7173bb92b7e4e6ce.png",
+      "base_units_remaining": "96.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/92",
+      "id": 92,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Duration",
+      "name": "Quiet Song 440ml",
+      "abv": "4.3",
+      "fullname": "Duration Quiet Song 440ml (4.3% ABV)",
+      "price": "5.00",
+      "logo": "/media/emf/product-logos/f578788cf2ef5476813d1add5a45280380e35ab1d3092f57dbe899daf3dfd243.png",
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/69",
       "id": 69,
-      "department": { "id": 64, "description": "Cans \u22640.5%", "notes": null },
-      "manufacturer": "Big Drop",
-      "name": "Uptime 330ml (GF, Vegan)",
-      "abv": "0.5",
-      "fullname": "Big Drop Uptime 330ml (GF, Vegan) (0.5% ABV)",
-      "price": "3.80",
-      "base_units_bought": "72.0",
-      "base_units_remaining": "41.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Good Chemistry",
+      "name": "Pure Optimism 440ml",
+      "abv": "3.4",
+      "fullname": "Good Chemistry Pure Optimism 440ml (3.4% ABV)",
+      "price": "5.50",
+      "logo": "/media/emf/product-logos/581445e476248afeac26e653e3bd44d56a94ec392c19278d6ebe7edea228a35b.png",
+      "base_units_remaining": "12.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 49,
-      "department": { "id": 64, "description": "Cans \u22640.5%", "notes": null },
-      "manufacturer": "Good Karma",
-      "name": "Culture Shock 330ml",
-      "abv": "0.5",
-      "fullname": "Good Karma Culture Shock 330ml (0.5% ABV)",
-      "price": "3.20",
-      "base_units_bought": "48.0",
-      "base_units_remaining": "14.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/70",
+      "id": 70,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Indie Rabble",
+      "name": "Frozen Moon 440ml",
+      "abv": "4.8",
+      "fullname": "Indie Rabble Frozen Moon 440ml (4.8% ABV)",
+      "price": "6.00",
+      "logo": "/media/emf/product-logos/9917c97b547ce54d22ffca539231533bbd9ab5e0e2e2c3b236a5d5ac791992b8.png",
+      "base_units_remaining": "36.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 51,
-      "department": { "id": 64, "description": "Cans \u22640.5%", "notes": null },
-      "manufacturer": "Good Karma",
-      "name": "Shanti 330ml",
-      "abv": "0.5",
-      "fullname": "Good Karma Shanti 330ml (0.5% ABV)",
-      "price": "3.40",
-      "base_units_bought": "24.0",
-      "base_units_remaining": "8.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/72",
+      "id": 72,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Marble",
+      "name": "Pint (Metric) 500ml",
+      "abv": "3.4",
+      "fullname": "Marble Pint (Metric) 500ml (3.4% ABV)",
+      "price": "5.00",
+      "logo": "/media/emf/product-logos/3fcd7300567af1949be7f1782f55783d5e6f0997c38a8e23b64af0a5f3b27e48.png",
+      "base_units_remaining": "36.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 50,
-      "department": { "id": 64, "description": "Cans \u22640.5%", "notes": null },
-      "manufacturer": "Good Karma",
-      "name": "What's Your Mantra 330ml",
+      "key": "stocktype/84",
+      "id": 84,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Queer Brewing",
+      "name": "Schwester 440ml",
+      "abv": "4.5",
+      "fullname": "Queer Brewing Schwester 440ml (4.5% ABV)",
+      "price": "6.00",
+      "logo": null,
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/78",
+      "id": 78,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Tap Social",
+      "name": "Jobsworth 330ml",
+      "abv": "3.4",
+      "fullname": "Tap Social Jobsworth 330ml (3.4% ABV)",
+      "price": "4.50",
+      "logo": "/media/emf/product-logos/c68a53e2e9ad3739d57296e4097cd435702577955fa25d52a4a7960aa8d9dc20.png",
+      "base_units_remaining": "96.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/71",
+      "id": 71,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "Triple Point",
+      "name": "Solo: HBC-586 440ml",
+      "abv": "3.8",
+      "fullname": "Triple Point Solo: HBC-586 440ml (3.8% ABV)",
+      "price": "5.00",
+      "logo": "/media/emf/product-logos/c47d376a41c0741c551ce5a77cb51d9ec5dcce426f39d9bd4d611e2962bc7835.png",
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/79",
+      "id": 79,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "UnBarred",
+      "name": "Casual Pale 330ml",
+      "abv": "4.5",
+      "fullname": "UnBarred Casual Pale 330ml (4.5% ABV)",
+      "price": "4.00",
+      "logo": "/media/emf/product-logos/1ec806ef60bc9b59616f92df19afe0aa04da03b402a39cf1479222c3af7d3c04.png",
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/93",
+      "id": 93,
+      "department": {
+        "id": 60,
+        "description": "Craft cans >0.5%"
+      },
+      "manufacturer": "UnBarred",
+      "name": "Pebble 440ml",
+      "abv": "2.8",
+      "fullname": "UnBarred Pebble 440ml (2.8% ABV)",
+      "price": "5.00",
+      "logo": "/media/emf/product-logos/2da8377e5f294c14e85079bd92b21f36fef23f1ae07962dd98771f7d76f2429a.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/61",
+      "id": 61,
+      "department": {
+        "id": 62,
+        "description": "Craft \u22640.5%"
+      },
+      "manufacturer": "Nirvana",
+      "name": "Chocolate Porter 330ml",
+      "abv": "0.5",
+      "fullname": "Nirvana Chocolate Porter 330ml (0.5% ABV)",
+      "price": "3.50",
+      "logo": "/media/emf/product-logos/57e22410bffc6fca65280c5e906df6cd95dfb415bb1b20045512aed2b3b9436e.png",
+      "base_units_remaining": "36.0",
+      "sale_unit_name": "bottle"
+    },
+    {
+      "key": "stocktype/64",
+      "id": 64,
+      "department": {
+        "id": 62,
+        "description": "Craft \u22640.5%"
+      },
+      "manufacturer": "Nirvana",
+      "name": "Classic IPA 330ml",
+      "abv": "0.5",
+      "fullname": "Nirvana Classic IPA 330ml (0.5% ABV)",
+      "price": "3.50",
+      "logo": "/media/emf/product-logos/28499d4158f689a0427dac9fdf3daa14541484f635c332077f2f96cf554cade8.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/62",
+      "id": 62,
+      "department": {
+        "id": 62,
+        "description": "Craft \u22640.5%"
+      },
+      "manufacturer": "Nirvana",
+      "name": "Dark & Rich Stout 330ml",
       "abv": "0.0",
-      "fullname": "Good Karma What's Your Mantra 330ml",
-      "price": "3.20",
-      "base_units_bought": "48.0",
-      "base_units_remaining": "16.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "fullname": "Nirvana Dark & Rich Stout 330ml",
+      "price": "3.50",
+      "logo": "/media/emf/product-logos/6ffc0e03ec19afe4df12c6fa728b359263eec4fe3fb2f41eb37fa6f1132a801e.png",
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "bottle"
     },
     {
-      "id": 48,
-      "department": { "id": 70, "description": "Soft Drinks", "notes": null },
-      "manufacturer": "ChariTea",
-      "name": "Mate 330ml",
+      "key": "stocktype/65",
+      "id": 65,
+      "department": {
+        "id": 62,
+        "description": "Craft \u22640.5%"
+      },
+      "manufacturer": "Nirvana",
+      "name": "Hoppy Pale Ale 330ml",
+      "abv": "0.5",
+      "fullname": "Nirvana Hoppy Pale Ale 330ml (0.5% ABV)",
+      "price": "3.50",
+      "logo": "/media/emf/product-logos/5a5a2efdc9a99393988c798292f9be4068e7ca9a0e1dc63af4950126e5d1cfde.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/76",
+      "id": 76,
+      "department": {
+        "id": 62,
+        "description": "Craft \u22640.5%"
+      },
+      "manufacturer": "Nirvana",
+      "name": "Lager 330ml",
+      "abv": "0.3",
+      "fullname": "Nirvana Lager 330ml (0.3% ABV)",
+      "price": "3.50",
+      "logo": "/media/emf/product-logos/05d4244658bb68c3fe086e4729e3e85eed8f0e099ac542f2be95631732691c6a.png",
+      "base_units_remaining": "24.0",
+      "sale_unit_name": "bottle"
+    },
+    {
+      "key": "stocktype/63",
+      "id": 63,
+      "department": {
+        "id": 62,
+        "description": "Craft \u22640.5%"
+      },
+      "manufacturer": "Nirvana",
+      "name": "London Porter 330ml",
+      "abv": "0.5",
+      "fullname": "Nirvana London Porter 330ml (0.5% ABV)",
+      "price": "3.50",
+      "logo": "/media/emf/product-logos/a566f3f78ba15eeac60b92356950f56c0b9e98d4c9851ce35fd0cd95604a4182.png",
+      "base_units_remaining": "12.0",
+      "sale_unit_name": "bottle"
+    },
+    {
+      "key": "stocktype/74",
+      "id": 74,
+      "department": {
+        "id": 64,
+        "description": "Cocktail cans >0.5%"
+      },
+      "manufacturer": "Goldling",
+      "name": "Moonlight 250ml",
+      "abv": "6.0",
+      "fullname": "Goldling Moonlight 250ml (6.0% ABV)",
+      "price": "5.00",
+      "logo": "/media/emf/product-logos/d8c97731dcdf27c89ea22bad359489ad6a9af5668dcfb906d22189ab415a3a52.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/75",
+      "id": 75,
+      "department": {
+        "id": 64,
+        "description": "Cocktail cans >0.5%"
+      },
+      "manufacturer": "Goldling",
+      "name": "Sundown 250ml",
+      "abv": "6.0",
+      "fullname": "Goldling Sundown 250ml (6.0% ABV)",
+      "price": "5.00",
+      "logo": "/media/emf/product-logos/8c8d21097c6705f8809261b4b376205e92782b4b73d6dd0a0a35b08dee1be615.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/28",
+      "id": 28,
+      "department": {
+        "id": 70,
+        "description": "Soft Drink Cartons"
+      },
+      "manufacturer": "Sunpride",
+      "name": "Apple Juice",
       "abv": null,
-      "fullname": "ChariTea Mate 330ml",
-      "price": "3.40",
-      "base_units_bought": "120.0",
-      "base_units_remaining": "45.0",
-      "base_unit": "bottle",
-      "sale_unit": "bottle",
-      "base_units_per_sale_unit": "1.0"
+      "fullname": "Sunpride Apple Juice",
+      "price": "2.00",
+      "logo": "/media/emf/product-logos/9a1b8e1a442a450611d952161900f0582d34d21522fe2ee293ac79a4f0e4bebf.png",
+      "base_units_remaining": "36000.0",
+      "sale_unit_name": "pint"
     },
     {
-      "id": 6,
-      "department": { "id": 70, "description": "Soft Drinks", "notes": null },
+      "key": "stocktype/23",
+      "id": 23,
+      "department": {
+        "id": 70,
+        "description": "Soft Drink Cartons"
+      },
+      "manufacturer": "Sunpride",
+      "name": "Cranberry Juice",
+      "abv": null,
+      "fullname": "Sunpride Cranberry Juice",
+      "price": "2.00",
+      "logo": "/media/emf/product-logos/f649b73781a8305d282ecb1306abc6457529aa7c66c0eff69256861987a21209.png",
+      "base_units_remaining": "36000.0",
+      "sale_unit_name": "pint"
+    },
+    {
+      "key": "stocktype/26",
+      "id": 26,
+      "department": {
+        "id": 70,
+        "description": "Soft Drink Cartons"
+      },
+      "manufacturer": "Sunpride",
+      "name": "Orange Juice",
+      "abv": null,
+      "fullname": "Sunpride Orange Juice",
+      "price": "2.50",
+      "logo": "/media/emf/product-logos/82adaed5dd4669257c35a39a6f2dd79237a2c522c8d093cbb416eee6b91f1369.png",
+      "base_units_remaining": "36000.0",
+      "sale_unit_name": "pint"
+    },
+    {
+      "key": "stocktype/73",
+      "id": 73,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
+      "manufacturer": "Artisan",
+      "name": "Fiery Ginger Beer 200ml",
+      "abv": null,
+      "fullname": "Artisan Fiery Ginger Beer 200ml",
+      "price": "2.00",
+      "logo": "/media/emf/product-logos/0d633559100bd473618dcdb9aea3b11c59d6e89bac0cc0b5b41b7f362ff88067.png",
+      "base_units_remaining": "48.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/22",
+      "id": 22,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
       "manufacturer": "Coca Cola",
       "name": "Diet 330ml",
       "abv": null,
       "fullname": "Coca Cola Diet 330ml",
-      "price": "1.20",
-      "base_units_bought": "360.0",
-      "base_units_remaining": "100.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "price": "1.50",
+      "logo": "/media/emf/product-logos/3d3cefa8787688696c2e30d94f90dc0e3eedfb7e17e18c85e75ed5857e143600.png",
+      "base_units_remaining": "240.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 5,
-      "department": { "id": 70, "description": "Soft Drinks", "notes": null },
+      "key": "stocktype/20",
+      "id": 20,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
       "manufacturer": "Coca Cola",
       "name": "Regular 330ml",
       "abv": null,
       "fullname": "Coca Cola Regular 330ml",
-      "price": "1.20",
-      "base_units_bought": "720.0",
-      "base_units_remaining": "215.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "price": "1.50",
+      "logo": "/media/emf/product-logos/31de9ab02978177884d16f4c1c00a516adf4e8a31de3e34c4fa71e3101f6226d.png",
+      "base_units_remaining": "384.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 9,
-      "department": { "id": 70, "description": "Soft Drinks", "notes": null },
+      "key": "stocktype/27",
+      "id": 27,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
+      "manufacturer": "Coca Cola",
+      "name": "Zero 330ml",
+      "abv": null,
+      "fullname": "Coca Cola Zero 330ml",
+      "price": "1.50",
+      "logo": "/media/emf/product-logos/b9b60b31dfd76138bd39171c62b45632551c128c0a76496c27750f493b5f4b37.png",
+      "base_units_remaining": "240.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/25",
+      "id": 25,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
       "manufacturer": "Fanta",
       "name": "Lemon 330ml",
       "abv": null,
       "fullname": "Fanta Lemon 330ml",
-      "price": "1.20",
-      "base_units_bought": "192.0",
-      "base_units_remaining": "5.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "price": "1.50",
+      "logo": "/media/emf/product-logos/a1479030e7c43983b77124b45f6ede2079598350c4fe06c7ee7299933155d870.png",
+      "base_units_remaining": "216.0",
+      "sale_unit_name": "can"
     },
     {
-      "id": 3,
-      "department": { "id": 70, "description": "Soft Drinks", "notes": null },
+      "key": "stocktype/24",
+      "id": 24,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
+      "manufacturer": "Fanta",
+      "name": "Orange 330ml",
+      "abv": null,
+      "fullname": "Fanta Orange 330ml",
+      "price": "1.50",
+      "logo": "/media/emf/product-logos/12a45b0c5cf2b9d3402c4d9130a2a6895e5b721ee7b84bbbb96b2229011648c9.png",
+      "base_units_remaining": "240.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/17",
+      "id": 17,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
       "manufacturer": "Fever Tree",
       "name": "Light Tonic 200ml",
       "abv": null,
       "fullname": "Fever Tree Light Tonic 200ml",
-      "price": "1.40",
-      "base_units_bought": "72.0",
-      "base_units_remaining": "40.0",
-      "base_unit": "bottle",
-      "sale_unit": "bottle",
-      "base_units_per_sale_unit": "1.0"
+      "price": "2.00",
+      "logo": "/media/emf/product-logos/861668960ddf9ead692a6013328c1342788098b72fe3e1b5e5950163bd91e5e6.png",
+      "base_units_remaining": "72.0",
+      "sale_unit_name": "bottle"
     },
     {
-      "id": 4,
-      "department": { "id": 70, "description": "Soft Drinks", "notes": null },
+      "key": "stocktype/18",
+      "id": 18,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
       "manufacturer": "Fever Tree",
-      "name": "Tonic 200ml",
+      "name": "Regular Tonic 200ml",
       "abv": null,
-      "fullname": "Fever Tree Tonic 200ml",
-      "price": "1.40",
-      "base_units_bought": "144.0",
-      "base_units_remaining": "33.0",
-      "base_unit": "bottle",
-      "sale_unit": "bottle",
-      "base_units_per_sale_unit": "1.0"
+      "fullname": "Fever Tree Regular Tonic 200ml",
+      "price": "2.00",
+      "logo": "/media/emf/product-logos/92a0edaa7b19c91e103fdfb5bb5a9b9d79497fe8b4c86af1632a8a4ab68f6b39.png",
+      "base_units_remaining": "144.0",
+      "sale_unit_name": "bottle"
     },
     {
-      "id": 32,
-      "department": { "id": 75, "description": "Club Mate", "notes": null },
+      "key": "stocktype/19",
+      "id": 19,
+      "department": {
+        "id": 72,
+        "description": "Soft Drink Prepacked"
+      },
+      "manufacturer": "Sprite",
+      "name": "Zero 330ml",
+      "abv": null,
+      "fullname": "Sprite Zero 330ml",
+      "price": "1.50",
+      "logo": "/media/emf/product-logos/3a364a78a1ae5ee6cb553b2852ac52412ac259b36ec28c4654a0b76c4f86bc71.png",
+      "base_units_remaining": "72.0",
+      "sale_unit_name": "can"
+    },
+    {
+      "key": "stocktype/9",
+      "id": 9,
+      "department": {
+        "id": 75,
+        "description": "Club Mate"
+      },
       "manufacturer": "Club Mate",
       "name": "Granat 500ml",
       "abv": null,
       "fullname": "Club Mate Granat 500ml",
-      "price": "2.50",
-      "base_units_bought": "800.0",
-      "base_units_remaining": "183.0",
-      "base_unit": "bottle",
-      "sale_unit": "bottle",
-      "base_units_per_sale_unit": "1.0"
+      "price": "2.80",
+      "logo": "/media/emf/product-logos/e4852de71fb174907169b8b011a751e5bcb34efa60ce5683a167d8d9e1b75f36.png",
+      "base_units_remaining": "700.0",
+      "sale_unit_name": "bottle"
     },
     {
-      "id": 31,
-      "department": { "id": 75, "description": "Club Mate", "notes": null },
+      "key": "stocktype/8",
+      "id": 8,
+      "department": {
+        "id": 75,
+        "description": "Club Mate"
+      },
       "manufacturer": "Club Mate",
       "name": "Regular 500ml",
       "abv": null,
       "fullname": "Club Mate Regular 500ml",
-      "price": "2.50",
-      "base_units_bought": "1600.0",
-      "base_units_remaining": "129.0",
-      "base_unit": "bottle",
-      "sale_unit": "bottle",
-      "base_units_per_sale_unit": "1.0"
+      "price": "2.80",
+      "logo": "/media/emf/product-logos/f38444690c6b28a8dbd6a238c1741d36dd6990aa09243dda4c30513292580a8e.png",
+      "base_units_remaining": "1700.0",
+      "sale_unit_name": "bottle"
     },
     {
-      "id": 27,
-      "department": { "id": 95, "description": "Wine (cans)", "notes": null },
-      "manufacturer": "Copper Crew",
-      "name": "Chenin Blanc 250ml",
-      "abv": "13.5",
-      "fullname": "Copper Crew Chenin Blanc 250ml (13.5% ABV)",
-      "price": "5.00",
-      "base_units_bought": "48.0",
-      "base_units_remaining": "4.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "key": "stocktype/31",
+      "id": 31,
+      "department": {
+        "id": 90,
+        "description": "Wine Bottles"
+      },
+      "manufacturer": "Bello Tramonto",
+      "name": "Pinot Grigio",
+      "abv": "12.0",
+      "fullname": "Bello Tramonto Pinot Grigio (12.0% ABV)",
+      "price": "20.00",
+      "logo": "/media/emf/product-logos/5c893ccf28e719335c3eff1aafe9aca9dc45f711a925ee0acf121e218680a336.png",
+      "base_units_remaining": "27000.0",
+      "sale_unit_name": "bottle"
     },
     {
-      "id": 28,
-      "department": { "id": 95, "description": "Wine (cans)", "notes": null },
-      "manufacturer": "Copper Crew",
-      "name": "Merlot 250ml",
+      "key": "stocktype/37",
+      "id": 37,
+      "department": {
+        "id": 90,
+        "description": "Wine Bottles"
+      },
+      "manufacturer": "Club de Campo",
+      "name": "Malbec",
+      "abv": "13.0",
+      "fullname": "Club de Campo Malbec (13.0% ABV)",
+      "price": "20.00",
+      "logo": null,
+      "base_units_remaining": "27000.0",
+      "sale_unit_name": "bottle"
+    },
+    {
+      "key": "stocktype/29",
+      "id": 29,
+      "department": {
+        "id": 90,
+        "description": "Wine Bottles"
+      },
+      "manufacturer": "Healy & Gray",
+      "name": "White Zinfandel",
+      "abv": "10.5",
+      "fullname": "Healy & Gray White Zinfandel (10.5% ABV)",
+      "price": "20.00",
+      "logo": "/media/emf/product-logos/6cad564927d82f987805e668cfd0e8b8dcab75299602a4fa2a380ada2e6a2d8d.png",
+      "base_units_remaining": "9000.0",
+      "sale_unit_name": "bottle"
+    },
+    {
+      "key": "stocktype/32",
+      "id": 32,
+      "department": {
+        "id": 90,
+        "description": "Wine Bottles"
+      },
+      "manufacturer": "Inkosi",
+      "name": "Sauvignon Blanc",
       "abv": "13.5",
-      "fullname": "Copper Crew Merlot 250ml (13.5% ABV)",
-      "price": "5.00",
-      "base_units_bought": "48.0",
-      "base_units_remaining": "1.0",
-      "base_unit": "can",
-      "sale_unit": "can",
-      "base_units_per_sale_unit": "1.0"
+      "fullname": "Inkosi Sauvignon Blanc (13.5% ABV)",
+      "price": "20.00",
+      "logo": "/media/emf/product-logos/0990418ee07873efbc12b02ff0cc376392398a926e15cc07e6975d02c2508d5b.png",
+      "base_units_remaining": "27000.0",
+      "sale_unit_name": "bottle"
     }
   ]
 }

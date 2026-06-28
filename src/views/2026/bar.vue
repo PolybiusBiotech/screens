@@ -88,33 +88,63 @@ tr:last-child td {
 
 <script setup lang="ts">
 import Layout from '@/layouts/layout2026.vue';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import barData from '@/data/bar.json';
+import { BAR_API_BASE } from '@/bar-config';
 
-interface BarItem {
+interface StockType {
+  key: string;
   id: number;
   fullname: string;
   price: string | number;
   department: { description: string };
+  base_units_remaining: string;
 }
 
-const pages: Record<string, BarItem[]> = {};
-(barData.cybar as BarItem[]).forEach((e) => {
-  pages[e.department.description] = pages[e.department.description] || [];
-  pages[e.department.description].push(e);
-});
-const pageNames = Object.keys(pages);
+const POLL_URL =
+  BAR_API_BASE + '/api/stocklines.json?type=continuous&location=Null%20Sector&output=full';
 
-const page = ref<BarItem[]>([]);
+const items = reactive<StockType[]>(barData.cybar as StockType[]);
+
+async function refreshStock() {
+  try {
+    const resp = await fetch(POLL_URL);
+    const data = (await resp.json()) as { stocklines: Array<{ stocktype: StockType }> };
+    if (!data.stocklines.length) return; // Null Sector not set up yet — keep existing data
+    items.splice(0, items.length, ...data.stocklines.map((sl) => sl.stocktype));
+  } catch {
+    // network error — keep existing data
+  }
+}
+
+const inStockPages = computed(() => {
+  const result: Record<string, StockType[]> = {};
+  for (const item of items) {
+    if (parseFloat(item.base_units_remaining) > 0) {
+      (result[item.department.description] ??= []).push(item);
+    }
+  }
+  return result;
+});
+
+const pageNames = computed(() => Object.keys(inStockPages.value));
+const page = ref<StockType[]>([]);
 const pageName = ref('');
 const pageIndex = ref(0);
 
 function paginate() {
-  pageName.value = pageNames[pageIndex.value];
-  page.value = pages[pageNames[pageIndex.value]];
-  pageIndex.value = (pageIndex.value + 1) % pageNames.length;
+  const names = pageNames.value;
+  if (!names.length) return;
+  pageIndex.value = pageIndex.value % names.length;
+  pageName.value = names[pageIndex.value];
+  page.value = inStockPages.value[names[pageIndex.value]];
+  pageIndex.value = (pageIndex.value + 1) % names.length;
 }
 
-onMounted(paginate);
-setInterval(paginate, 10 * 1000);
+onMounted(() => {
+  paginate();
+  refreshStock();
+  setInterval(paginate, 10 * 1000);
+  setInterval(refreshStock, 5 * 60 * 1000);
+});
 </script>
