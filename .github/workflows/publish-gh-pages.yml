@@ -9,6 +9,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+      - name: Restore Eurostile fonts 🔤
+        run: |
+          mkdir -p src/assets/fonts/Eurostile
+          echo "${{ secrets.FONT_EUROSTILE_GZ }}"          | base64 -d | gunzip > src/assets/fonts/Eurostile/Eurostile.ttf
+          echo "${{ secrets.FONT_EUROSTILE_BOLD_GZ }}"     | base64 -d | gunzip > src/assets/fonts/Eurostile/Eurostile-Bold.ttf
+          echo "${{ secrets.FONT_EUROSTILE_EXTENDED2_BOLD }}" | base64 -d        > src/assets/fonts/Eurostile/Eurostile-Extended2-Bold.otf
       - name: Install and Build 🚧
         run: |
           npm install

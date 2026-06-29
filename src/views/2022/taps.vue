@@ -73,7 +73,8 @@ h2 {
 
 <script setup lang="ts">
 import Layout from '@/layouts/noGlitchLayout.vue';
-import tapsData from '../data/taps.json';
+import tapsData from '@/data/taps.json';
+import { BAR_MEDIA_BASE } from '@/bar-config';
 
 interface StockType {
   id: number;
@@ -87,7 +88,7 @@ interface Tap {
 
 const taps = [...(tapsData.kegs as Tap[]), ...(tapsData.ciders as Tap[])].map((tap) => {
   const e = tap.stocktype;
-  e.logo = 'https://bar.emf.camp' + e.logo;
+  e.logo = BAR_MEDIA_BASE + e.logo;
   return e;
 });
 

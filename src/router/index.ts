@@ -1,20 +1,23 @@
 import Menu from '@/components/mainMenu.vue';
-import Aquatic from '@/views/aquatic-augmentation-research.vue';
-import AquaticDoor from '@/views/aquatic-augmentation-research-door.vue';
-import CanteenDoor1 from '@/views/canteen-door1.vue';
-import CanteenDoor2 from '@/views/canteen-door2.vue';
-import Demo1 from '@/views/demo1.vue';
-import Demo2 from '@/views/demo2.vue';
-import Bar from '@/views/bar.vue';
-import Entrance from '@/views/entrance.vue';
-import EntranceMap from '@/views/entrance-map.vue';
-import Laboratory32a from '@/views/laboratory32a.vue';
-import LifeSupport from '@/views/life-support.vue';
-import LifeSupportDoor from '@/views/life-support-door.vue';
-import PlantRoom from '@/views/plant-room.vue';
-import PlantRoomDoor from '@/views/plant-room-door.vue';
-import Taps from '@/views/taps.vue';
-import BarClosed from '@/views/bar-closed.vue';
+import Aquatic from '@/views/2022/aquatic-augmentation-research.vue';
+import AquaticDoor from '@/views/2022/aquatic-augmentation-research-door.vue';
+import CanteenDoor1 from '@/views/2022/canteen-door1.vue';
+import CanteenDoor2 from '@/views/2022/canteen-door2.vue';
+import Demo1 from '@/views/2022/demo1.vue';
+import Demo2 from '@/views/2022/demo2.vue';
+import Bar2022 from '@/views/2022/bar.vue';
+import Bar from '@/views/2026/bar.vue';
+import BarClosed2026 from '@/views/2026/bar-closed.vue';
+import Entrance from '@/views/2022/entrance.vue';
+import EntranceMap from '@/views/2022/entrance-map.vue';
+import Laboratory32a from '@/views/2022/laboratory32a.vue';
+import LifeSupport from '@/views/2022/life-support.vue';
+import LifeSupportDoor from '@/views/2022/life-support-door.vue';
+import PlantRoom from '@/views/2022/plant-room.vue';
+import PlantRoomDoor from '@/views/2022/plant-room-door.vue';
+import Taps from '@/views/2026/taps.vue';
+import Taps2022 from '@/views/2022/taps.vue';
+import BarClosed from '@/views/2022/bar-closed.vue';
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
@@ -120,6 +123,11 @@ const routes: Array<RouteRecordRaw> = [
     component: Bar,
   },
   {
+    path: '/2022/bar',
+    name: 'bar-2022',
+    component: Bar2022,
+  },
+  {
     path: '/taps',
     name: 'taps',
     component: Taps,
@@ -128,8 +136,21 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/2022/taps',
+    name: 'taps-2022',
+    component: Taps2022,
+    meta: {
+      refresh: '1',
+    },
+  },
+  {
     path: '/bar-closed',
     name: 'bar-closed',
+    component: BarClosed2026,
+  },
+  {
+    path: '/2022/bar-closed',
+    name: 'bar-closed-2022',
     component: BarClosed,
   },
 

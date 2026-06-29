@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Commercial fonts — do not distribute (Monotype/Linotype license)
+src/assets/fonts/Eurostile/
+
 # Editor directories and files
 .claude
 .vscode/*
