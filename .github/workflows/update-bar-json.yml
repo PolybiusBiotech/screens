@@ -11,8 +11,42 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Update
+      - name: Update taps.json
         run: curl https://bar.emf.camp/api/cybar-on-tap.json > src/data/taps.json
+      - name: Update bar.json
+        run: |
+          python3 - <<'EOF'
+          import json, urllib.request
+
+          url = 'https://bar.emf.camp/api/stocklines.json?type=continuous&location=Null%20Sector&output=full'
+          resp = urllib.request.urlopen(url)
+          data = json.load(resp)
+
+          cybar = []
+          for sl in data['stocklines']:
+              st = sl['stocktype']
+              cybar.append({
+                  'key': st['key'],
+                  'id': st['id'],
+                  'department': {
+                      'id': st['department']['id'],
+                      'description': st['department']['description'],
+                  },
+                  'manufacturer': st['manufacturer'],
+                  'name': st['name'],
+                  'abv': st.get('abv'),
+                  'fullname': st['fullname'],
+                  'price': st['price'],
+                  'logo': st.get('logo'),
+                  'base_units_remaining': st['base_units_remaining'],
+                  'sale_unit_name': st['sale_unit_name'],
+              })
+
+          with open('src/data/bar.json', 'w') as f:
+              json.dump({'cybar': cybar}, f, indent=2)
+              f.write('\n')
+          print(f'Wrote {len(cybar)} items')
+          EOF
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
@@ -31,4 +65,3 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
-          

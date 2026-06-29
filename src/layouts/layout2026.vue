@@ -86,20 +86,23 @@ body,
   border: var(--lines_base_width) solid var(--primary-color);
   border-radius: 5vmin;
   box-shadow: 0 0 35px #be00fe50, inset 0 0 60px #be00fe0a;
+  display: flex;
+  flex-direction: column;
   font-family: 'Eurostile', 'Exo', sans-serif;
   font-weight: 700;
   height: calc(100vh - 2 * var(--lines_base_width));
   margin: var(--lines_base_width);
   overflow: hidden;
   padding: var(--lines_base_width);
-  position: static;
+  position: relative;
   width: calc(100vw - 2 * var(--lines_base_width));
 }
 
 #notch {
   border-top: var(--lines_base_width) solid #0d0010;
   margin: auto;
-  position: absolute;
+  /* fixed so it pins to the viewport top regardless of layout margin */
+  position: fixed;
   left: calc(50% - 0.5 * var(--notch_width));
   top: 0;
   width: var(--notch_width);
@@ -130,20 +133,21 @@ body,
 
 #content-2026 {
   display: grid;
+  flex: 1;
   gap: 2vh 2vw;
   /* V depth ≈ notch_width × (80/200) = 7.2vmax; add 1.5vmax breathing room */
   padding: 9vmax 3vw 2vh;
   grid-auto-flow: row;
-  height: 100%;
+  /* 1fr: single slot item stretches to fill available content height */
+  grid-template-rows: 1fr;
   max-width: 100vw;
+  min-height: 0;
   overflow: hidden;
 }
 
-/* bottom-right branding ID — fixed so it works with position:static on the layout */
+/* bottom-right branding ID — flex item, in flow so it never overlaps content */
 .lore-id {
-  position: fixed;
-  bottom: 1.2vmin;
-  right: 2vw;
+  flex-shrink: 0;
   font-family: 'Eurostile', 'Exo', sans-serif;
   font-weight: 400;
   font-size: 0.85em;
@@ -152,7 +156,7 @@ body,
   text-align: right;
   color: var(--primary-color);
   opacity: 0.45;
-  z-index: 10;
+  padding: 0 2vw 1.2vmin 0;
 }
 .lore-id p {
   margin: 0;

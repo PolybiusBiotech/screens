@@ -37,8 +37,11 @@
 
 .message strong {
   color: var(--accent-color);
-  text-shadow: 0 0 18px #f9e20080;
-  display: inline;
+  text-shadow: 0 0 24px #f9e200a0;
+  display: block;
+  font-size: 2em;
+  letter-spacing: 0.08em;
+  margin-top: 0.4em;
 }
 
 .restock {
