@@ -1,159 +1,136 @@
 <template>
-    <article class="chart">
-        <canvas :id="uid"></canvas>
-
-    </article>
+  <article class="chart">
+    <canvas :id="uid"></canvas>
+  </article>
 </template>
 
 <style scoped>
-	.chart {
-		width: 100%;
-	}
+.chart {
+  width: 100%;
+}
 </style>
 
 <script lang="ts">
-	const animations = { // Fun animations we can use
-		"none": null,
-		"wobbly": {
-			tension: {
-				duration: 1000,
-				easing: 'linear',
-				from: 1,
-				to: 0,
-				loop: true
-            }
-        },
-		"wobbly-light": {
-			tension: {
-				duration: 10000,
-				easing: 'linear',
-				from: 1,
-				to: 0,
-				loop: true
-            }
-        },
-    }
-
-let interval:any;
-
-
+const animations: Record<string, any> = {
+  // Fun animations we can use
+  none: null,
+  wobbly: {
+    tension: {
+      duration: 1000,
+      easing: 'linear',
+      from: 1,
+      to: 0,
+      loop: true,
+    },
+  },
+  'wobbly-light': {
+    tension: {
+      duration: 10000,
+      easing: 'linear',
+      from: 1,
+      to: 0,
+      loop: true,
+    },
+  },
+};
 </script>
 <script setup lang="ts">
-    import { onMounted, Prop, PropType } from 'vue';
-    import { Chart, registerables } from 'chart.js';
+import { onMounted, PropType } from 'vue';
+import { Chart, registerables } from 'chart.js';
 
-	import chartjsGauge from 'chartjs-gauge';
+Chart.register(...registerables);
 
-	Chart.register(...registerables);
+const uid: string = 'chart' + Math.random();
 
-    const uid:string = 'chart' + Math.random();
+const props = defineProps({
+  animation: {
+    type: String as PropType<string>,
+    default: 'none',
+  },
+  dataRetriever: {
+    // If static data, just return the JSON. If dynamic, retrieve it and set an interval.
+    // Function should return whatever chart.js has under "data"
+    type: Function as PropType<() => any>,
+    default: null,
+  },
+  displayLegend: {
+    type: Boolean,
+    default: false,
+  },
+  displayLegendPosition: {
+    type: String,
+    default: 'top',
+  },
+  graphType: {
+    // See chart.js documentation
+    type: String as PropType<any>,
+    default: 'bar',
+  },
+  interval: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  optionsDelta: {
+    // IMPORTANT
+    // does a SHALLOW merge. If you overwrite a default option you'll lose everything under it you didn't specifically mention.
+    type: Object as PropType<object>,
+    default: () => ({}),
+  },
+  yMax: {
+    type: Number as PropType<number>,
+    default: -1,
+    //optional: true
+  },
+});
 
-    const props = defineProps({
-
-		animation: {
-			type: String as PropType <string>,
-			default: 'none'
-		},
-        dataRetriever: {
-			// If static data, just return the JSON. If dynamic, retrieve it and set an interval.
-			// Function should return whatever chart.js has under "data"
-            type: Function as PropType <Function>,
-            default: null
+onMounted(() => {
+  const defaultOptions = {
+    // TODO will we want to change these?
+    animation: animations[props.animation],
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: props.displayLegend,
+        position: props.displayLegendPosition,
+        labels: {
+          color: '#0083d1', // TODO var(--primary-color) somehow
+          font: {
+            family: "'Tourney'",
+            size: 20,
+            weight: '900',
+          },
         },
-		displayLegend: {
-			type: Boolean,
-			default: false
-		},
-		displayLegendPosition: {
-			type: String,
-			default: 'top'
-		},
-		graphType: { // See chart.js documentation
-			type:  String as PropType<any>,
-			default: 'bar'
-		},
-        interval : {
-			type: Number as PropType <number>,
-			default: 0
-		},
-		optionsDelta: {
-			// IMPORTANT
-			// does a SHALLOW merge. If you overwrite a default option you'll lose everything under it you didn't specifically mention.
-			type: Object as PropType <Object>,
-			default: {}
-		},
-		yMax: {
-			type: Number as PropType <number>,
-			default: -1
-			//optional: true
-		}
-    });
+      },
+    },
+    responsive: true,
+    scaleShowLabels: false,
 
+    scales: {
+      y: {
+        display: false,
+        min: 0,
+        ...(props.yMax >= 0 ? { max: props.yMax } : {}),
+      },
+    },
+  };
 
-    onMounted(() => {
-		const defaultOptions = { // TODO will we want to change these?
-			animation: animations[props.animation],
-			maintainAspectRatio: false,
-			plugins: {
-				legend: { 
-					display: props.displayLegend,
-					position: props.displayLegendPosition,
-					labels: {
-						color: '#0083d1', // TODO var(--primary-color) somehow
-						font: { 
-							family: "'Tourney'",
-							size: 20, 
-							weight: '900',
-						},
-					}
-				}
-			},
-			responsive: true,
-			scaleShowLabels: false,
+  const options = Object.assign({}, props.optionsDelta, defaultOptions);
+  const ctx: any = document.getElementById(uid);
 
-			scales: {
-				y: {
-					display: false,
-					min: 0,
-				}
-			}
-		};
-		if (props.yMax >= 0) {
-			defaultOptions.scales.y['max'] = props.yMax;
-		}
+  //chartjs(ctx, options);
+  const config = {
+    type: props.graphType,
+    data: props.dataRetriever.call(null),
+    options,
+  };
 
-		const options = Object.assign(props.optionsDelta, defaultOptions);
-        const ctx:any = document.getElementById(uid);
+  const chart = new Chart(ctx, config);
 
-			//chartjs(ctx, options);
-		const config = {
-			type: props.graphType,
-			data: props.dataRetriever.call(null),
-			options
-		}
-
-		let chart;
-		switch (props.graphType) {
-			case 'gauge':
-				chart = chartjsGauge(ctx, config);
-				break;
-			default:
-				chart = new Chart(ctx, config);
-				break;
-		}
-
-		if (props.interval > 0) {
-			interval = setInterval(() => {
-				switch (props.graphType) {
-					case 'gauge':
-						chart.data.datasets[0].value = props.dataRetriever.call(null).datasets[0].value;
-						break;
-					default:
-						chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
-						break;
-				}
-				requestAnimationFrame(()=>chart.update());
-			}, props.interval);
-		}
-    });
+  if (props.interval > 0) {
+    setInterval(() => {
+      chart.data.datasets[0].data = props.dataRetriever.call(null).datasets[0].data;
+      requestAnimationFrame(() => chart.update());
+    }, props.interval);
+  }
+});
 </script>

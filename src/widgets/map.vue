@@ -1,127 +1,138 @@
 <template>
-	<div class="map" :id="elementId">
-        <slot />
-        <div class="legend">
-            <div class="legend-warning" v-if="hasWarnings"><slot name="warning"/></div>
-        </div>
-	</div>
+  <div class="map" :id="elementId">
+    <slot />
+    <div class="legend">
+      <div class="legend-warning" v-if="hasWarnings"><slot name="warning" /></div>
+    </div>
+  </div>
 </template>
 
 <style>
-    .map {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
+.map {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
-    .map svg .area {
-        fill: var(--background-color);
-    }
+.map svg .area {
+  fill: var(--background-color);
+}
 
-    .map svg .area-current {
-        fill: #4b758e;
-    }
+.map svg .area-current {
+  fill: #4b758e;
+}
 
-    .map svg .area-warning {
-        animation-name: area-warning-keyframes;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        fill: var(--warning-color);
-    }
+.map svg .area-warning {
+  animation-name: area-warning-keyframes;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  fill: var(--warning-color);
+}
 
-    .legend {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        text-align: right;
-        color: var(--background-color);
-    }
-    .legend div {
-        display: inline-block;
-        padding: 0.25em;
+.legend {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  color: var(--background-color);
+}
+.legend div {
+  display: inline-block;
+  padding: 0.25em;
+}
+.legend-warning {
+  background-color: var(--warning-color);
+}
 
-    }
-    .legend-warning {
-        background-color: var(--warning-color);
-    }
+.animate-dash {
+  animation-name: dash-keyframes;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
 
-    .animate-dash {
-        animation-name: dash-keyframes;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
+svg text {
+  text-transform: none;
+  font-size: 0.5vmin;
+  font-weight: 900;
+  font-family: 'Tourney', cursive;
+}
 
-    svg text {
-        text-transform: none;
-        font-size: 0.5vmin;
-        font-weight: 900;
-        font-family: 'Tourney', cursive;
-    }
+@keyframes area-warning-keyframes {
+  0% {
+    fill-opacity: 0.6;
+  }
+  50% {
+    fill-opacity: 1;
+  }
+  100% {
+    fill-opacity: 0.6;
+  }
+}
 
-    @keyframes area-warning-keyframes {
-        0%  { fill-opacity: 0.6; }
-        50%  { fill-opacity: 1; }
-        100%  { fill-opacity: 0.6; }
-    }
-
-    @keyframes dash-keyframes {
-        0%  { stroke-dashoffset: 4; }
-        100%  { stroke-dashoffset: 0; }
-    }
-
+@keyframes dash-keyframes {
+  0% {
+    stroke-dashoffset: 4;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 </style>
 
+<script setup lang="ts">
+import { onMounted } from 'vue';
 
-<script>
+const props = defineProps({
+  current: {
+    type: String,
+  },
+  warning: {
+    type: String,
+  },
+});
 
-</script>
+defineSlots<{
+  default?: () => any;
+  warning?: () => any;
+}>();
 
-<script setup>
-	import {onMounted} from 'vue';
+const warningAreas = (props.warning || '').split(',').filter(Boolean);
+const hasWarnings = warningAreas.length > 0;
 
-	const props = defineProps({
-		current: {
-			type: String
-		},
-        warning: {
-			type: String,
-		},
-	})
+const elementId = 'map' + Math.random();
 
-    const warningAreas = (props.warning || "").split(",").filter(Boolean);
-    const hasWarnings = warningAreas.length > 0;
+onMounted(() => {
+  const parentElement = document.getElementById(elementId);
+  if (!parentElement) return;
+  const svgElement = parentElement.querySelector<SVGSVGElement>('svg');
+  if (!svgElement) return;
 
-    const elementId = 'map' + Math.random();
+  // Make sure the map never overflows the viewport
+  const resize = () => {
+    svgElement.style.width = parentElement.clientWidth - 5 + 'px';
+    svgElement.style.height = parentElement.clientHeight - 5 + 'px';
+  };
+  resize();
+  window.addEventListener('resize', resize);
 
-	onMounted(()=>{
-        const parentElement = document.getElementById(elementId);
-        const svgElement = parentElement.querySelector('svg');
+  const areas: Record<string, Element> = {};
+  svgElement.querySelectorAll('.area').forEach((e) => {
+    const name = Array.from(e.classList)
+      .find((c) => c.indexOf('area-') === 0)
+      ?.slice(5);
+    if (name) areas[name] = e;
+  });
+  if (props.current && areas[props.current]) areas[props.current].classList.add('area-current');
 
-        // Make sure the map never overflows the viewport
-        const resize = () => {
-            svgElement.style.width = (parentElement.clientWidth - 5) + "px";
-            svgElement.style.height = (parentElement.clientHeight - 5) + "px";
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        const areas = {};
-        svgElement.querySelectorAll(".area").forEach((e, i) => {
-            const name = Array.from(e.classList).find(e => e.indexOf('area-') === 0).slice(5);
-            areas[name] = e;
-        });
-        props.current && areas[props.current].classList.add('area-current');
-
-        warningAreas.forEach((area, i) => {
-            if (areas[area]) {
-                areas[area].classList.add('area-warning');
-            } else {
-                console.warn(`area ${area} not found in list of areas ${areas.join(',')}`);
-            }
-        })
-	});
-
+  warningAreas.forEach((area) => {
+    if (areas[area]) {
+      areas[area].classList.add('area-warning');
+    } else {
+      console.warn(`area ${area} not found in list of areas ${Object.keys(areas).join(',')}`);
+    }
+  });
+});
 </script>
